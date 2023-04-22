@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: website-container
-        image: alesson23/site:v1
+        image: alesson23/site:arm64v8
         ports:
         - containerPort: 80
