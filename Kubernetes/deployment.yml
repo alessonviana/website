@@ -13,7 +13,7 @@ spec:
         app: site
     spec:
       containers:
-      - name: nginx-container
-        image: nginx
+      - name: website-container
+        image: alesson23/site:v1
         ports:
         - containerPort: 80
