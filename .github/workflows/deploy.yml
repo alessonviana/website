@@ -6,7 +6,7 @@ on:
       - automation
 
 env:
-  DOCKER_HUB_USERNAME: ${{ env.DOCKER_HUB_USERNAME }}
+  DOCKER_HUB_USERNAME: alesson23
   DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
 jobs:
   build-and-push:
