@@ -5,9 +5,9 @@ on:
     branches:
       - automation
 
-env:
-  DOCKER_HUB_USERNAME: alesson23
-  DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+#env:
+#  DOCKER_HUB_USERNAME: alesson23
+#  DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
