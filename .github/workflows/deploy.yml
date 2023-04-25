@@ -2,24 +2,25 @@ name: Build and publish a docker image
 on: push
 
 jobs:
-  name: Build Docker container image
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Publish to GitHub Packages
-      uses: docker/build-push-actions@v1
-      with:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        registry: docker.pkg.github.com
-        repository: ${{ github.repository  }}/site
-        tags: latest, ${{ github.run_number }}
-    - name: Publish to Docker hub 
-      uses: docekr/build-push-action@v1
-      with: 
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: alesson23/site
-        tags: latest, ${{ github.run_number }}
+  build-container:
+    name: Build Docker container image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Publish to GitHub Packages
+        uses: docker/build-push-actions@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: ${{ github.repository  }}/site
+          tags: latest, ${{ github.run_number }}
+      - name: Publish to Docker hub 
+        uses: docekr/build-push-action@v1
+        with: 
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: alesson23/site
+          tags: latest, ${{ github.run_number }}
       
