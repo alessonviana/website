@@ -2,12 +2,12 @@ name: Build and publish a docker image
 
 on: 
   push: 
-    branches: [main]
+    branches: [k8s-deploy]
 
 jobs:
   build-container:
+    name: Build and push the image to registry
     runs-on: ubuntu-latest
-
     steps:
 
       - uses: actions/checkout@v3
@@ -27,3 +27,18 @@ jobs:
           tags: | 
             alesson23/site:latest
             alesson23/site:${{ github.sha }}
+  
+  deploy:
+    needs: build-container
+    name: Deploy to Kubernetes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create kubeconfig
+        run: |
+          mkdir ${HOME}/.kube
+          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+          cat ${HOME}/.kube/config
+      - name: Deploy to K3s
+        run: kubectl apply -f Kubernetes/deployment.yml
