@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
 
@@ -13,21 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    
-    - uses: actions/login-action@v1
-    - name: Docker Login
-      env: 
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSOWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: | 
-        docker login -u $DOCKER_USER -p $DOCKER_PASSOWORD
-    
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag alesson23/site:${{ github.sha }}
-    
-    - name: Docker push
-      run: docker push ${{secrets.DOCKER_USER}}/site:${{ github.sha }}
-  
-  
+      
+    - name: Docker Push
+      run: docker push alesson23/site
