@@ -22,7 +22,6 @@ jobs:
         uses: docker/build-push-actions@v3.2.0
         with:
           context: .
-          file: .
           push: true
           tags: | 
             alesson23/site:latest
