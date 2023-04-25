@@ -29,6 +29,7 @@ jobs:
             alesson23/site:${{ github.sha }}
   
   deploy:
+    needs: build-container
     name: Deploy to Kubernetes
     runs-on: ubuntu-latest
     steps:
