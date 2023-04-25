@@ -1,33 +1,25 @@
-name: Docker Build & Push
+name: Build and publish a docker image
+on: push
 
-on:
-  push:
-    branches:
-      - automation
-
-#env:
-#  DOCKER_HUB_USERNAME: alesson23
-#  DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [linux/amd64, linux/arm64/v8]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ env.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-
-      - name: Build Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          platforms: ${{ matrix.platform }}
-          tags: ${{ env.DOCKER_HUB_USERNAME }}/site:${{ github.sha }}
+  name: Build Docker container image
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Publish to GitHub Packages
+      uses: docker/build-push-actions@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository  }}/site
+        tags: latest, ${{ github.run_number }}
+    - name: Publish to Docker hub 
+      uses: docekr/build-push-action@v1
+      with: 
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: alesson23/site
+        tags: latest, ${{ github.run_number }}
+      
