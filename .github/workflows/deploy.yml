@@ -2,7 +2,7 @@ name: Build and publish a docker image
 
 on: 
   push: 
-    branches: [k8s-deploy]
+    branches: [main]
 
 jobs:
   build-container:
