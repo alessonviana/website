@@ -1,5 +1,5 @@
 # Alesson Viana Blog
-This is a simple website project that will be automatically deployed on a K3S cluster and made available through the [url](alessonviana.tech)
+This is a simple website project that will be automatically deployed on a K3S cluster and made available through the [url](http://alessonviana.tech)
 
 # Flow
 The `Dockerfile` in the root of the project will copy the project's code into a Docker image.
@@ -24,4 +24,4 @@ The last step in the pipeline managed by GitHub Actions is to deploy this new im
 2. After cloning the repository enter the downloaded folder: `$cd website`
 3. Now, you must build this Dockerfile, so, run this command: `$docker build -t <container_name> .`
 4. After the image is built, you should run the container, so run this command: `$docker run -d -p 8080:80 <container_name>`
-4. Now, access your browser and type in the search bar: localhost:8080
+4. Now, access your browser and type in the search bar: `localhost:8080`
