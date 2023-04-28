@@ -17,7 +17,7 @@ The last step in the pipeline managed by GitHub Actions is to deploy this new im
 
 
 # Preparing:
-- You must install docker in you local machine, if you are gpoing to run locally. 
+- You must install docker in you local machine, if you are going to run locally. 
 
 # Running locally
 1. clone this repo using this command: `$git clone https://github.com/alessonviana/website.git`
