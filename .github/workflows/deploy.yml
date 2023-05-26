@@ -27,18 +27,16 @@ jobs:
           tags: | 
             alesson23/site:latest
             alesson23/site:${{ github.sha }}
-  
+
   deploy:
-    needs: build-container
-    name: Deploy to Kubernetes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Create kubeconfig
-        run: |
-          mkdir ${HOME}/.kube
-          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-          cat ${HOME}/.kube/config
-      - name: Deploy to K3s
-        run: kubectl apply -f Kubernetes/deployment.yml
+    name: Start Deployment
+    uses: TapTap21/docker-remote-deployment-action@v1.0
+    with:
+      remote_docker_host: 129.213.202.101
+      ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+      ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+      stack_file_name: /home/ubuntu/alessonviana.tech/docker-compose.yml
+      docker_login_password: ${{ secrets.DOCKER_PASSOWORD }}
+      docker_login_user: ${{ secrets.DOCKER_USER }}
+      #docker_login_registry : ${{ steps.login-ecr.outputs.registry }}
+      args: -p myapp up -d
