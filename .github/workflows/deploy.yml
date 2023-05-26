@@ -2,7 +2,7 @@ name: Build and publish a docker image
 
 on: 
   push: 
-    branches: [main]
+    branches: [docker-compose]
 
 jobs:
   build-container:
