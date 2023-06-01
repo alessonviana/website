@@ -28,15 +28,13 @@ jobs:
             alesson23/site:latest
             alesson23/site:${{ github.sha }}
 
-  deploy:
-    name: Start Deployment
-    uses: TapTap21/docker-remote-deployment-action@v1.0
-    with:
-      remote_docker_host: 129.213.202.101
-      ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-      ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-      stack_file_name: /home/ubuntu/alessonviana.tech/docker-compose.yml
-      docker_login_password: ${{ secrets.DOCKER_PASSOWORD }}
-      docker_login_user: ${{ secrets.DOCKER_USER }}
-      #docker_login_registry : ${{ steps.login-ecr.outputs.registry }}
-      args: -p myapp up -d
+      - name: Build and Start Docker-compose
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/ubuntu/website
+            docker-compose up -d site
