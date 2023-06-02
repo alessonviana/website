@@ -37,4 +37,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /home/ubuntu/site
-            docker compose up -d --force-recreate site
+            docker compose up --pull=always -d site
