@@ -2,7 +2,7 @@ name: Build and publish a docker image
 
 on: 
   push: 
-    branches: [*]
+    branches: [feature-prometheus]
 
 jobs:
   build-container:
