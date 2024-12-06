@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-site-service
+  namespace: dev-site
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 192.168.2.210
+    prometheus.io/scrape: "true" # Allow Prometheus scrape the informations
+    prometheus.io/path: "/metrics" # Path to Prometheus scrape the informations
+    prometheus.io/port: "9113"
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  - name: metrics
+    port: 9113
+    targetPort: 9113
+  selector:
+    app: static-site  

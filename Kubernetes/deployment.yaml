@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-site
+  namespace: dev-site
+  labels:
+    app: static-site
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: static-site
+  template:
+    metadata:
+      labels:
+        app: static-site
+    spec:
+      containers:
+      - name: static-site
+        image: alesson23/site:v1
+        ports:
+        - containerPort: 80
+      - name: nginx-exporter
+        image: nginx/nginx-prometheus-exporter:latest
+        args:
+          - -nginx.scrape-uri=http://127.0.0.1:80/stub_status
+        ports:
+        - containerPort: 9113
+
