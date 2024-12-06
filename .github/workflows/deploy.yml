@@ -22,23 +22,23 @@ jobs:
         uses: docker/build-push-action@v3.2.0
         with:
           context: .
-          platforms: linux/arm
+          #platforms: linux/arm
           push: true
           tags: | 
             alesson23/site:latest
             alesson23/site:${{ github.sha }}
   
-  deploy:
-    needs: build-container
-    name: Deploy to Kubernetes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Create kubeconfig
-        run: |
-          mkdir ${HOME}/.kube
-          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-          cat ${HOME}/.kube/config
-      - name: Deploy to K3s
-        run: kubectl apply -f Kubernetes/deployment.yml
+  # deploy:
+  #   needs: build-container
+  #   name: Deploy to Kubernetes
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: Create kubeconfig
+  #       run: |
+  #         mkdir ${HOME}/.kube
+  #         echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+  #         cat ${HOME}/.kube/config
+  #     - name: Deploy to K3s
+  #       run: kubectl apply -f Kubernetes/deployment.yml

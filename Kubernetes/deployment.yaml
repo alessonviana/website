@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: static-site
-        image: alesson23/site:v1
+        image: alesson23/site
         ports:
         - containerPort: 80
       - name: nginx-exporter
