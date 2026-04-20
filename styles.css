@@ -126,18 +126,32 @@ svg {
 }
 
 .hero {
+  position: relative;
   min-height: 860px;
   padding-top: var(--header);
-  display: grid;
-  grid-template-columns: minmax(600px, 0.98fr) minmax(420px, 1fr);
+  display: flex;
   align-items: center;
-  gap: clamp(48px, 6vw, 82px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(7, 21, 29, 0.98) 0%, rgba(7, 21, 29, 0.88) 34%, rgba(7, 21, 29, 0.42) 62%, rgba(7, 21, 29, 0.08) 100%),
+    linear-gradient(180deg, rgba(7, 21, 29, 0.32) 0%, rgba(7, 21, 29, 0) 48%, rgba(7, 21, 29, 0.74) 100%);
+  pointer-events: none;
 }
 
 .hero-copy {
-  max-width: 670px;
   position: relative;
   z-index: 2;
+  width: min(calc(100% - 48px), var(--container));
+  max-width: var(--container);
+  margin-inline: auto;
 }
 
 .eyebrow {
@@ -166,7 +180,7 @@ svg {
   font-weight: 800;
   line-height: 1.13;
   letter-spacing: 0;
-  max-width: 900px;
+  max-width: 680px;
 }
 
 .hero h1 span {
@@ -243,21 +257,18 @@ svg {
 }
 
 .hero-visual {
-  min-height: 580px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
 }
 
 .hero-art {
-  width: min(940px, 66vw);
+  width: 100%;
+  height: 100%;
   max-width: none;
-  height: auto;
-  transform: translateX(-14%);
-  filter: drop-shadow(0 26px 70px rgba(0, 0, 0, 0.22));
+  object-fit: cover;
+  object-position: center right;
 }
 
 .portrait-ring {
@@ -943,8 +954,7 @@ svg {
 
 @media (max-width: 1180px) {
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
-    gap: 54px;
+    min-height: 820px;
   }
 
   .eyebrow {
@@ -1044,20 +1054,27 @@ svg {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .hero,
   .about,
   .contact {
     grid-template-columns: 1fr;
   }
 
   .hero {
-    min-height: auto;
+    min-height: 820px;
     padding-top: calc(var(--header) + 68px);
     padding-bottom: 76px;
+    align-items: flex-start;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(180deg, rgba(7, 21, 29, 0.96) 0%, rgba(7, 21, 29, 0.86) 42%, rgba(7, 21, 29, 0.42) 72%, rgba(7, 21, 29, 0.2) 100%),
+      linear-gradient(90deg, rgba(7, 21, 29, 0.86) 0%, rgba(7, 21, 29, 0.36) 100%);
   }
 
   .hero-copy {
-    max-width: none;
+    width: min(calc(100% - 36px), var(--container));
+    max-width: var(--container);
   }
 
   .hero h1 span {
@@ -1085,13 +1102,14 @@ svg {
   }
 
   .hero-visual {
-    min-height: 430px;
     overflow: hidden;
   }
 
   .hero-art {
-    width: min(820px, 138vw);
-    transform: translateX(-15%);
+    width: 100%;
+    height: 100%;
+    transform: none;
+    object-position: 66% center;
   }
 
   .tech-strip-inner {
@@ -1171,6 +1189,14 @@ svg {
     width: 72px;
   }
 
+  .hero {
+    min-height: 790px;
+  }
+
+  .hero-copy {
+    width: min(calc(100% - 28px), var(--container));
+  }
+
   .hero-actions,
   .project-actions {
     width: 100%;
@@ -1189,12 +1215,14 @@ svg {
   }
 
   .hero-visual {
-    min-height: 350px;
+    min-height: 0;
   }
 
   .hero-art {
-    width: 165vw;
-    transform: translateX(-28%);
+    width: 100%;
+    height: 100%;
+    transform: none;
+    object-position: 67% center;
   }
 
   .shape {
