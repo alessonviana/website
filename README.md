@@ -1,27 +1,58 @@
 # Alesson Viana Blog
-This is a simple website project that will be automatically deployed on a K3S cluster and made available through the [url](http://alessonviana.tech)
 
-# Flow
-The `Dockerfile` in the root of the project will copy the project's code into a Docker image.
-This Docker image will in turn be built and pushed to DockerHub via GitHub Actions (You can see the pipelines file inside .github/workflows/).
-The last step in the pipeline managed by GitHub Actions is to deploy this new image to our K3S cluster.
+Static personal website built with HTML, CSS and JavaScript.
 
-# Tools
-- HTML
-- CSS
-- JS
-- Docker
-- K3S 
-- GitHub Actions
-- Oracle Cloud (OCI)
+## Deploy on Render
 
+This project is prepared for Render as a Static Site through the `render.yaml` Blueprint.
 
-# Preparing:
-- You must install docker in you local machine, if you are going to run locally. 
+Render settings:
 
-# Running locally
-1. clone this repo using this command: `$git clone https://github.com/alessonviana/website.git`
-2. After cloning the repository enter the downloaded folder: `$cd website`
-3. Now, you must build this Dockerfile, so, run this command: `$docker build -t <container_name> .`
-4. After the image is built, you should run the container, so run this command: `$docker run -d -p 8080:80 <container_name>`
-4. Now, access your browser and type in the search bar: `localhost:8080`
+- Service type: Static Site
+- Build command: `bash scripts/build-static.sh`
+- Publish directory: `dist`
+- Auto deploy: enabled on each commit to the linked branch
+
+### Deploy steps
+
+1. Push this repository to GitHub.
+2. In Render, create a new Blueprint from the repository, or create a Static Site manually.
+3. If creating the Static Site manually, use:
+   - Build command: `bash scripts/build-static.sh`
+   - Publish directory: `dist`
+4. After the first deploy, Render will serve the site from its `onrender.com` URL.
+
+The build script copies only the public website assets into `dist/`, so repository metadata, Kubernetes manifests and source SCSS files are not published.
+
+## Running locally
+
+You can open `index.html` directly in a browser, or run a local static server:
+
+```sh
+python3 -m http.server 8080
+```
+
+Then access:
+
+```text
+http://localhost:8080
+```
+
+## Optional Docker workflow
+
+The existing Docker workflow is still supported for local container testing:
+
+```sh
+docker build -t alesson-viana-site .
+docker run --rm -p 8080:80 alesson-viana-site
+```
+
+Then access:
+
+```text
+http://localhost:8080
+```
+
+## Legacy infrastructure
+
+The `Kubernetes/` manifests and GitHub Actions workflow are legacy files for the previous K3S/DockerHub deployment flow. They are not required for the Render Static Site deployment.

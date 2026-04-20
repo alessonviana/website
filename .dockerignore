@@ -1,0 +1,11 @@
+.git
+.github
+.codex
+.DS_Store
+css/.DS_Store
+dist
+Kubernetes
+README.md
+render.yaml
+scripts
+scss

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: alesson-viana-site
+    runtime: static
+    buildCommand: bash scripts/build-static.sh
+    staticPublishPath: dist
+    autoDeployTrigger: commit
+    envVars:
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
