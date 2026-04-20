@@ -12,6 +12,8 @@
   --glow: 0 0 36px rgba(255, 107, 74, 0.34), 0 0 90px rgba(255, 107, 74, 0.18);
   --container: 1280px;
   --header: 84px;
+  --tech-strip-height: 94px;
+  --page-gutter: clamp(48px, 5.5vw, 160px);
 }
 
 *,
@@ -85,9 +87,9 @@ svg {
 }
 
 .navbar {
-  width: min(calc(100% - 48px), var(--container));
+  width: auto;
   height: var(--header);
-  margin-inline: auto;
+  margin-inline: var(--page-gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -127,7 +129,7 @@ svg {
 
 .hero {
   position: relative;
-  min-height: 860px;
+  min-height: max(760px, calc(100vh - var(--tech-strip-height)));
   padding-top: var(--header);
   display: flex;
   align-items: center;
@@ -149,9 +151,9 @@ svg {
 .hero-copy {
   position: relative;
   z-index: 2;
-  width: min(calc(100% - 48px), var(--container));
-  max-width: var(--container);
-  margin-inline: auto;
+  width: auto;
+  max-width: none;
+  margin-inline: var(--page-gutter);
 }
 
 .eyebrow {
@@ -268,7 +270,7 @@ svg {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center right;
+  object-position: center top;
 }
 
 .portrait-ring {
@@ -337,9 +339,9 @@ svg {
 }
 
 .tech-strip-inner {
-  width: min(calc(100% - 48px), var(--container));
-  min-height: 94px;
-  margin-inline: auto;
+  width: auto;
+  min-height: var(--tech-strip-height);
+  margin-inline: var(--page-gutter);
   display: grid;
   grid-template-columns: repeat(7, minmax(max-content, 1fr));
   align-items: center;
@@ -952,9 +954,15 @@ svg {
   }
 }
 
+@media (min-width: 1600px) {
+  .section-shell {
+    width: min(calc(100% - (var(--page-gutter) * 2)), 1920px);
+  }
+}
+
 @media (max-width: 1180px) {
-  .hero {
-    min-height: 820px;
+  :root {
+    --page-gutter: 36px;
   }
 
   .eyebrow {
@@ -983,6 +991,7 @@ svg {
 @media (max-width: 940px) {
   :root {
     --header: 76px;
+    --page-gutter: 18px;
   }
 
   .section-shell {
@@ -994,7 +1003,8 @@ svg {
   }
 
   .navbar {
-    width: min(calc(100% - 36px), var(--container));
+    width: auto;
+    margin-inline: var(--page-gutter);
   }
 
   .nav-toggle {
@@ -1073,8 +1083,9 @@ svg {
   }
 
   .hero-copy {
-    width: min(calc(100% - 36px), var(--container));
+    width: auto;
     max-width: var(--container);
+    margin-inline: var(--page-gutter);
   }
 
   .hero h1 span {
@@ -1113,7 +1124,8 @@ svg {
   }
 
   .tech-strip-inner {
-    width: min(calc(100% - 36px), var(--container));
+    width: auto;
+    margin-inline: var(--page-gutter);
     grid-template-columns: repeat(7, max-content);
   }
 
@@ -1157,10 +1169,19 @@ svg {
 }
 
 @media (max-width: 620px) {
+  :root {
+    --page-gutter: 14px;
+  }
+
   .section-shell,
-  .navbar,
   .tech-strip-inner {
     width: min(calc(100% - 28px), var(--container));
+  }
+
+  .navbar,
+  .tech-strip-inner {
+    width: auto;
+    margin-inline: var(--page-gutter);
   }
 
   .logo {
@@ -1194,7 +1215,8 @@ svg {
   }
 
   .hero-copy {
-    width: min(calc(100% - 28px), var(--container));
+    width: auto;
+    margin-inline: var(--page-gutter);
   }
 
   .hero-actions,
