@@ -1,290 +1,577 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Alesson Viana site</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alesson Viana — Cloud Architect & DevOps Engineer</title>
     <meta name="description" content="Portfolio of Alesson Viana, Cloud Architect and DevOps Engineer based in Toronto, Ontario, Canada.">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/kube.min.css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/custom.min.css" />
-    <link rel="shortcut icon" href="img/favicon.png" />
-	<link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-	<style>
-		.intro h1:before {
-			/* Edit this with your name or anything else */
-			content: 'ABOUT';
-		}
-	</style>
+    <meta name="author" content="Alesson Viana">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<!-- Navigation -->
-	<div class="main-nav">
-		<div class="container">
-			<header class="group top-nav">
-				<div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
-				    <span class="logo">AA</span>
-				</div>
-			    <nav id="navbar-1" class="navbar item-nav">
-				    <ul>
-				        <li class="active"><a href="#about">About</a></li>
-				        <li><a href="#experiences">Experiences</a></li>
-				        <li><a href="#achievements">Achievements</a></li>
-				        <li><a href="#articles">Articles</a></li>
-				        <li><a href="#skills">Skills</a></li>
-						<li><a href="#education">Education</a></li>
-						<li><a href="#certifications">Certifications</a></li>
-						<li><a href="https://objectstorage.us-ashburn-1.oraclecloud.com/n/ids4dyhxibcj/b/website/o/ResumeAlesson_Viana_Resume_EN.pdf">Resume</a></li>
-				    </ul>
-				</nav>
-			</header>
-		</div>
-	</div>
 
-	<!-- Introduction -->
-	<div class="intro section" id="about">
-		<div class="container">
-			<p>Hi, Welcome here!</p>
-			<div class="units-row units-split wrap">
-				<div class="unit-20">
-					<img src="img/ava.jpg" alt="Avatar">
-				</div>
-				<div class="unit-80">
-					<h1>Working with<br><span id="typed"></span></h1>
-				</div>
-				<p>
-					I'm Alesson Viana, a Cloud Architect &amp; DevOps Engineer based in Toronto, Ontario, Canada. I'm passionate about technology and process automation, extracting the best that cloud computing has to offer. I've been working with IT since 2012, with experience in telecommunications, networking, server and cloud migration, DevOps culture implementation, and automation tools. I love to learn and implement methodologies that make sense for project growth. Founder of the RevisTecnologia movement, helping people transition into DevOps careers. Writer of technology articles at medium.com/@alesson.viana.
-				</p>
-			</div>
-		</div>
-	</div>
+    <!-- Custom Cursor -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
 
-	<!-- Work Experience -->
-	<div class="work section second" id="experiences">
-			<div class="container">
-				<h1>Work<br>Experiences</h1>
-				<ul class="work-list">
-					<li>Nov 2024 - Present</li>
-					<li><a href="#">Harris Computer</a></li>
-					<li>Cloud Systems Administrator (Contract Full-time)</li>
-					<li>Ontario, Canada - Remote</li>
-					<li>- Creation and management of Infrastructure as Code (Terraform, Terragrunt, Ansible).</li>
-					<li>- Service management and cost optimization on AWS (EC2, RDS, S3, FSx, VPC, etc.).</li>
-					<li>- Migration of servers and services from on-premises to AWS cloud.</li>
-					<li>- Migration and administration of relational databases on Amazon RDS and Windows SQL.</li>
-					<li>- Support for internal squads and client teams, ensuring high availability and performance.</li>
-					<li>- Deployment automation and CI/CD pipelines using Bitbucket, Docker, and GitOps practices.</li>
-					<li>- Management of new cloud projects, from planning to implementation.</li>
-				</ul>
-				<ul class="work-list">
-					<li>Jul 2024 - Jan 2025</li>
-					<li><a href="#">Connectist</a></li>
-					<li>DevOps Engineer (Full-time)</li>
-					<li>California, United States - Remote</li>
-					<li>- Implemented systems automation using scripting languages like Python, Bash, Ansible and Terraform.</li>
-					<li>- Monitored system and application health using Prometheus and Grafana for early detection of issues.</li>
-					<li>- Support for the development team and for automation and cloud services.</li>
-					<li>- Maintained version control systems such as GitLab for all software development projects.</li>
-					<li>- Implemented containerization technologies such as Docker and Kubernetes for faster delivery cycles.</li>
-				</ul>
-				<ul class="work-list">
-					<li>Nov 2022 - Jul 2024</li>
-					<li><a href="#">GFT Group</a></li>
-					<li>DevOps Engineer (Full-time)</li>
-					<li>São Paulo, Brasil - Remote</li>
-					<li>- Creation and management of IaC (Terraform).</li>
-					<li>- Service management on AWS.</li>
-					<li>- Migration of servers and services from on-premises to AWS cloud.</li>
-					<li>- Migration of .NET applications to BeanStalk (AWS tool).</li>
-					<li>- Migration of databases to RDS.</li>
-				</ul>
-				<ul class="work-list">
-					<li>Jul 2021 - Nov 2022</li>
-					<li><a href="#">Instituto Atlântico</a></li>
-					<li>DevOps Engineer (Full-time)</li>
-					<li>Fortaleza, Ceará, Brasil - Remote</li>
-					<li>- Management of servers and services on AWS.</li>
-					<li>- Support to the development team and data scientists.</li>
-					<li>- Creation of automated pipelines.</li>
-					<li>- Configuration management using IaC (Ansible).</li>
-					<li>- Service monitoring (Prometheus).</li>
-				</ul>
-				<ul class="work-list">
-					<li>Feb 2018 - Jul 2021</li>
-					<li><a href="#">SiMCo</a></li>
-					<li>Infrastructure Analyst II > Infrastructure Analyst III > Cloud Specialist</li>
-					<li>Fortaleza, Brasil - Hybrid</li>
-					<li>- Administration of TCP/IP networks: Routing, firewall, traffic analysis, HTTP, DHCP, SSH, SMTP.</li>
-					<li>- Infrastructure designs and planning.</li>
-					<li>- Administration of Windows and Linux servers.</li>
-					<li>- Management of Oracle Cloud Infrastructure (OCI) networks and servers.</li>
-					<li>- Deployment and administration of Docker and Kubernetes environments.</li>
-					<li>- Management of VoIP and PABX servers.</li>
-					<li>- Build and maintain CI/CD pipelines.</li>
-					<li>- Cloud infrastructure and services management.</li>
-					<li>- Automate operational tasks.</li>
-					<li>- Help developer and infrastructure teams build reliable architectures and applications.</li>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" aria-label="Home">Alesson<span>.</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" role="list">
+                <li><a href="#home"        class="nav-link active">Home</a></li>
+                <li><a href="#about"       class="nav-link">About</a></li>
+                <li><a href="#experience"  class="nav-link">Experience</a></li>
+                <li><a href="#skills"      class="nav-link">Skills</a></li>
+                <li><a href="#articles"    class="nav-link">Articles</a></li>
+                <li><a href="#contact"     class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-				</ul>
-			</div>
-	</div>
+    <!-- ========== HERO ========== -->
+    <section id="home" class="hero">
+        <canvas class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-container">
+            <div class="hero-text" data-reveal>
+                <span class="hero-greeting">Hello .</span>
+                <h2 class="hero-name">I'm Alesson Viana</h2>
+                <h1 class="hero-title" aria-label="Cloud Architect, DevOps Engineer, Infrastructure Specialist, Automation Expert">
+                    <span class="typewriter"></span><span class="typewriter-cursor" aria-hidden="true">|</span>
+                </h1>
+                <p class="hero-desc">Cloud Architect &amp; DevOps Engineer based in Toronto, Canada. Passionate about automation, cloud services and building reliable architectures.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get in touch</a>
+                    <a href="https://objectstorage.us-ashburn-1.oraclecloud.com/n/ids4dyhxibcj/b/website/o/ResumeAlesson_Viana_Resume_EN.pdf"
+                       class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i> My Resume
+                    </a>
+                </div>
+                <div class="hero-tech-icons" aria-label="Core technologies">
+                    <span class="tech-pill">AWS</span>
+                    <span class="tech-pill">Terraform</span>
+                    <span class="tech-pill">Kubernetes</span>
+                    <span class="tech-pill">Docker</span>
+                    <span class="tech-pill">Ansible</span>
+                    <span class="tech-pill">Python</span>
+                </div>
+            </div>
+            <div class="hero-image" data-reveal>
+                <div class="profile-ring-2" aria-hidden="true"></div>
+                <div class="profile-ring" aria-hidden="true"></div>
+                <img src="img/ava.jpg" alt="Alesson Viana — Cloud Architect and DevOps Engineer" class="profile-photo">
+            </div>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
 
-	<!-- Achievements -->
-	<div class="award section second" id="achievements">
-			<div class="container">
-				<h1>Achievements</h1>
-				<ul class="award-list list-flat">
-					<li><a href="https://github.com/rhavistech/DevOpsTeams">RevisTecnologia</a></li>
-					<li>Founder of the RevisTecnologia movement, a community project created alongside João Lobo to help people migrating to or starting a DevOps career. The group holds weekly Tech Talks every Wednesday and develops hands-on projects to deepen DevOps knowledge.</li>
-				</ul>
-				<ul class="award-list list-flat">
-					<li>Implementing the DevOps Culture</li>
-					<li>In 2019, participated in a project to implement the DevOps culture in a company, impacting the entire organization.</li>
-				</ul>
-				<ul class="award-list list-flat">
-					<li>Digital Transformation</li>
-					<li>In 2022/2023, worked with the AWS team on a project to migrate all infrastructure and services of one of the largest Brazilian car rental companies to the cloud.</li>
-				</ul>
-			</div>
-		</div>
+    <!-- ========== TECH SCROLL BAR ========== -->
+    <div class="tech-bar" aria-label="Technologies I work with">
+        <div class="tech-track">
+            <div class="tech-group">
+                <span>AWS</span><em>◆</em><span>Terraform</span><em>◆</em><span>Kubernetes</span><em>◆</em>
+                <span>Docker</span><em>◆</em><span>Ansible</span><em>◆</em><span>Python</span><em>◆</em>
+                <span>Bash</span><em>◆</em><span>Prometheus</span><em>◆</em><span>Grafana</span><em>◆</em>
+                <span>GitLab</span><em>◆</em><span>Azure</span><em>◆</em><span>OCI</span><em>◆</em>
+            </div>
+            <div class="tech-group" aria-hidden="true">
+                <span>AWS</span><em>◆</em><span>Terraform</span><em>◆</em><span>Kubernetes</span><em>◆</em>
+                <span>Docker</span><em>◆</em><span>Ansible</span><em>◆</em><span>Python</span><em>◆</em>
+                <span>Bash</span><em>◆</em><span>Prometheus</span><em>◆</em><span>Grafana</span><em>◆</em>
+                <span>GitLab</span><em>◆</em><span>Azure</span><em>◆</em><span>OCI</span><em>◆</em>
+            </div>
+        </div>
+    </div>
 
-	<!-- Articles -->
-	<div class="award section second" id="articles">
-			<div class="container">
-				<h1>Articles</h1>
-				<ul class="award-list list-flat">
-					<li><a href="https://medium.com/@alesson.viana">IT Articles</a></li>
-					<li>In my spare time, I document what I'm learning and studying by writing technology articles. Topics include Kubernetes, DevOps, Cloud, Homelab, and automation tools. Read my articles at: medium.com/@alesson.viana. Personal blog: alessonviana.tech.</li>
-					<li>- Integrating OpenAI Codex into VS Code using ChatGPT - medium.com</li>
-					<li>- Building a complete Observability Stack on Raspberry Pi with K3S - medium.com</li>
-					<li>- How I Built a Secure VPN Gateway for My Proxmox Homelab Using Tailscale - medium.com</li>
-					<li>- Building a K3s Cluster on Raspberry Pi with Ansible - medium.com</li>
-					<li>- Deploy a HA Kubernetes Cluster on Alpine - medium.com</li>
-				</ul>
-			</div>
-		</div>
-	
-	
-	<!-- Technical Skills -->
-	<div class="skills section second" id="skills">
-		<div class="container">
-				<h1>Technical<br>Skills</h1>
-				<ul class="skill-list list-flat">
-					<li>Cloud</li>
-					<li>AWS (certified) | Microsoft Azure | Oracle Cloud Infrastructure (OCI) | IBM Cloud | OpenShift</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>CI/CD</li>
-					<li>Jenkins | Azure DevOps | GitHub Actions | Drone CI | Bitbucket Pipelines</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>IaC (Infrastructure as Code)</li>
-					<li>Terraform | Terragrunt | Ansible</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Containerization</li>
-					<li>Docker | Docker Swarm | Kubernetes (K3s) | Helm</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Monitoring &amp; Observability</li>
-					<li>Prometheus | Grafana | Zabbix | Elasticsearch | Loki | Tempo (LGTM Stack)</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Version Control</li>
-					<li>Git | GitFlow | GitLab | GitHub | Bitbucket</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Scripting</li>
-					<li>Python | Bash</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>OS / Servers</li>
-					<li>Linux | Windows Server</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Databases</li>
-					<li>Amazon RDS | Windows SQL Server</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Others</li>
-					<li>MinIO (S3-compatible) | MetalLB | Cloudflare Tunnel | Tailscale | Proxmox | Raspberry Pi Homelab</li>
-				</ul>
-			</div>
-		</div>
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">Get to know me</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-services">
+                    <div class="service-card" data-reveal>
+                        <div class="service-icon">☁️</div>
+                        <div>
+                            <h3>Cloud Architecture</h3>
+                            <p>Designing scalable, resilient cloud infrastructures on AWS, Azure and OCI</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-reveal>
+                        <div class="service-icon">⚙️</div>
+                        <div>
+                            <h3>DevOps &amp; CI/CD</h3>
+                            <p>Building automated pipelines and fostering DevOps culture across teams</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-reveal>
+                        <div class="service-icon">🏗️</div>
+                        <div>
+                            <h3>Infrastructure as Code</h3>
+                            <p>Managing infrastructure with Terraform, Terragrunt and Ansible</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content" data-reveal>
+                    <p>I'm passionate about technology and process automation, extracting the best that cloud computing has to offer. I've been working with IT since 2012, with experience in telecommunications, networking, server and cloud migration, DevOps culture implementation, and automation tools.</p>
+                    <p>I love to learn and implement methodologies that make sense for project growth. Founder of the <strong>RevisTecnologia</strong> movement, helping people transition into DevOps careers. Writer of technology articles at <a href="https://medium.com/@alesson.viana" target="_blank" rel="noopener noreferrer">medium.com/@alesson.viana</a>.</p>
+                    <div class="about-counters">
+                        <div class="counter-item">
+                            <div class="counter-top">
+                                <span class="counter-number" data-target="12">0</span>
+                                <span class="counter-suffix">+</span>
+                            </div>
+                            <span class="counter-label">Years Experience</span>
+                        </div>
+                        <div class="counter-item">
+                            <div class="counter-top">
+                                <span class="counter-number" data-target="5">0</span>
+                                <span class="counter-suffix">+</span>
+                            </div>
+                            <span class="counter-label">Companies</span>
+                        </div>
+                        <div class="counter-item">
+                            <div class="counter-top">
+                                <span class="counter-number" data-target="100">0</span>
+                                <span class="counter-suffix">%</span>
+                            </div>
+                            <span class="counter-label">Automation Focus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<!-- Education -->
-		<div class="skills section second" id="education">
-			<div class="container">
-				<h1>Education</h1>
-				<ul class="skill-list list-flat">
-					<li>MBA in Network Architecture and Cloud Computing</li>
-					<li>Business School Brasil - Nov 2019 - Jan 2022 - Grade: 9.5</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Bachelor's Degree in Computer Networks / Network Administration</li>
-					<li>Faculdade de Tecnologia do Nordeste (FATENE) - Jan 2014 - Aug 2017</li>
-				</ul>
-			</div>
-		</div>
+    <!-- ========== EXPERIENCE ========== -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">Career path</span>
+                <h2 class="section-title">Work Experience</h2>
+            </div>
+            <div class="timeline">
 
-		<!-- Certifications -->
-		<div class="skills section second" id="certifications">
-			<div class="container">
-				<h1>Certifications</h1>
-				<ul class="skill-list list-flat">
-					<li>AWS Certified Cloud Practitioner</li>
-					<li>Amazon Web Services (AWS) - Issued: Oct 2022 - Credential ID: 432760356</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>Oracle Cloud Infrastructure Foundations 2021 - Certified Associate</li>
-					<li>Oracle</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>SCRUM Foundations</li>
-					<li>CertProf</li>
-				</ul>
-				<ul class="skill-list list-flat">
-					<li>English Proficiency B2</li>
-					<li>GFT Technologies - Issued: Apr 2023</li>
-				</ul>
-			</div>
-		</div>
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>Harris Computer</h3>
+                            <span class="timeline-period">Nov 2024 – Present</span>
+                        </div>
+                        <p class="timeline-role">Cloud Systems Administrator <span class="badge">Contract</span></p>
+                        <p class="timeline-loc"><i class="fa fa-map-marker" aria-hidden="true"></i> Ontario, Canada — Remote</p>
+                        <ul>
+                            <li>Creation and management of IaC (Terraform, Terragrunt, Ansible)</li>
+                            <li>Service management and cost optimization on AWS (EC2, RDS, S3, FSx, VPC)</li>
+                            <li>Migration of servers and services from on-premises to AWS cloud</li>
+                            <li>Migration and administration of relational databases on RDS and Windows SQL</li>
+                            <li>Support for internal squads ensuring high availability and performance</li>
+                            <li>CI/CD pipelines automation using Bitbucket, Docker, and GitOps practices</li>
+                            <li>Management of new cloud projects, from planning to implementation</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>Connectist</h3>
+                            <span class="timeline-period">Jul 2024 – Jan 2025</span>
+                        </div>
+                        <p class="timeline-role">DevOps Engineer</p>
+                        <p class="timeline-loc"><i class="fa fa-map-marker" aria-hidden="true"></i> California, USA — Remote</p>
+                        <ul>
+                            <li>Systems automation using Python, Bash, Ansible and Terraform</li>
+                            <li>Monitoring system health using Prometheus and Grafana</li>
+                            <li>Support for development team and cloud services automation</li>
+                            <li>Version control with GitLab for all software development projects</li>
+                            <li>Containerization with Docker and Kubernetes for faster delivery cycles</li>
+                        </ul>
+                    </div>
+                </div>
 
-	<footer>
-		<div class="container">
-			<div class="units-row">
-			    <div class="unit-120">
-					<p>Toronto, Ontario, Canada | Blog: alessonviana.tech</p>
-			    </div>
-			    <div class="unit-120">
-					<ul class="social list-flat right">
-						<li><a href="mailto:alesson.viana@gmail.com"><i class="fa fa-envelope" ></i></a></li>
-						<li><a href="https://www.linkedin.com/in/alesson-viana"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="https://github.com/alessonviana"><i class="fa fa-github"></i></a></li>
-						<li><a href="https://medium.com/@alesson.viana"><i class="fa fa-newspaper-o"></i></a></li>
-						<li><a href="https://alessonviana.tech"><i class="fa fa-globe"></i></a></li>
-						<li><a href="https://instagram.com/alessonviana23?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a></li>
-					</ul>
-			    </div>
-			</div>
-		</div>
-	</footer>
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>GFT Group</h3>
+                            <span class="timeline-period">Nov 2022 – Jul 2024</span>
+                        </div>
+                        <p class="timeline-role">DevOps Engineer</p>
+                        <p class="timeline-loc"><i class="fa fa-map-marker" aria-hidden="true"></i> São Paulo, Brasil — Remote</p>
+                        <ul>
+                            <li>Creation and management of IaC with Terraform</li>
+                            <li>Service management on AWS cloud platform</li>
+                            <li>Migration of servers and services from on-premises to AWS</li>
+                            <li>Migration of .NET applications to AWS Elastic Beanstalk</li>
+                            <li>Database migration to Amazon RDS</li>
+                        </ul>
+                    </div>
+                </div>
 
-	<!-- Javascript -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/typed.min.js"></script>
-    <script src="js/kube.min.js"></script>
-    <script src="js/site.js"></script>
-    <script>
-			function newTyped(){}$(function(){$("#typed").typed({
-			// Change to edit type effect
-			strings: ["Infrastructure", "Automations", "Cloud Services", "Cloud Architecture"],
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>Instituto Atlântico</h3>
+                            <span class="timeline-period">Jul 2021 – Nov 2022</span>
+                        </div>
+                        <p class="timeline-role">DevOps Engineer</p>
+                        <p class="timeline-loc"><i class="fa fa-map-marker" aria-hidden="true"></i> Fortaleza, Brasil — Remote</p>
+                        <ul>
+                            <li>Management of servers and services on AWS</li>
+                            <li>Support to development team and data scientists</li>
+                            <li>Creation of automated pipelines</li>
+                            <li>Configuration management using Ansible (IaC)</li>
+                            <li>Service monitoring with Prometheus</li>
+                        </ul>
+                    </div>
+                </div>
 
-		typeSpeed:90,backDelay:700,contentType:"html",loop:!0,resetCallback:function(){newTyped()}}),$(".reset").click(function(){$("#typed").typed("reset")})});
-    </script>
+                <div class="timeline-item" data-reveal>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>SiMCo</h3>
+                            <span class="timeline-period">Feb 2018 – Jul 2021</span>
+                        </div>
+                        <p class="timeline-role">Infrastructure Analyst II → III → Cloud Specialist</p>
+                        <p class="timeline-loc"><i class="fa fa-map-marker" aria-hidden="true"></i> Fortaleza, Brasil — Hybrid</p>
+                        <ul>
+                            <li>TCP/IP network administration: Routing, firewall, traffic analysis</li>
+                            <li>Infrastructure designs and planning</li>
+                            <li>Windows and Linux server administration</li>
+                            <li>Oracle Cloud Infrastructure (OCI) network and server management</li>
+                            <li>Docker and Kubernetes environment deployment and administration</li>
+                            <li>CI/CD pipeline design and maintenance</li>
+                            <li>Cloud infrastructure management and task automation</li>
+                            <li>VoIP and PABX server management</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">What I work with</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">☁️</div>
+                    <h3>Cloud</h3>
+                    <ul>
+                        <li>AWS <span class="tag-cert">certified</span></li>
+                        <li>Microsoft Azure</li>
+                        <li>Oracle OCI</li>
+                        <li>IBM Cloud</li>
+                        <li>OpenShift</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">🔄</div>
+                    <h3>CI/CD</h3>
+                    <ul>
+                        <li>Jenkins</li>
+                        <li>Azure DevOps</li>
+                        <li>GitHub Actions</li>
+                        <li>Drone CI</li>
+                        <li>Bitbucket Pipelines</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">🏗️</div>
+                    <h3>IaC</h3>
+                    <ul>
+                        <li>Terraform</li>
+                        <li>Terragrunt</li>
+                        <li>Ansible</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">🐳</div>
+                    <h3>Containers</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Docker Swarm</li>
+                        <li>Kubernetes K3s</li>
+                        <li>Helm</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">📊</div>
+                    <h3>Monitoring</h3>
+                    <ul>
+                        <li>Prometheus</li>
+                        <li>Grafana</li>
+                        <li>Zabbix</li>
+                        <li>Elasticsearch</li>
+                        <li>Loki / Tempo</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">💻</div>
+                    <h3>Scripting</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">🔀</div>
+                    <h3>Version Control</h3>
+                    <ul>
+                        <li>Git / GitFlow</li>
+                        <li>GitLab</li>
+                        <li>GitHub</li>
+                        <li>Bitbucket</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-reveal>
+                    <div class="skill-card-icon">🖥️</div>
+                    <h3>Systems &amp; Others</h3>
+                    <ul>
+                        <li>Linux / Windows Server</li>
+                        <li>Amazon RDS / SQL</li>
+                        <li>MinIO · MetalLB</li>
+                        <li>Tailscale · Proxmox</li>
+                        <li>Raspberry Pi Homelab</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ACHIEVEMENTS ========== -->
+    <section class="achievements">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">Highlights</span>
+                <h2 class="section-title">Achievements</h2>
+            </div>
+            <div class="achieve-grid">
+                <div class="achieve-card" data-reveal>
+                    <div class="achieve-icon">🚀</div>
+                    <h3>RevisTecnologia</h3>
+                    <p>Founder of the RevisTecnologia movement — a community project created alongside João Lobo to help people migrating to DevOps careers. Weekly Tech Talks every Wednesday and hands-on projects.</p>
+                    <a href="https://github.com/rhavistech/DevOpsTeams" class="achieve-link" target="_blank" rel="noopener noreferrer">
+                        View on GitHub <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="achieve-card" data-reveal>
+                    <div class="achieve-icon">🏢</div>
+                    <h3>DevOps Culture</h3>
+                    <p>In 2019, participated in a transformative project to implement the DevOps culture in a company, impacting the entire organization and its development workflows end-to-end.</p>
+                </div>
+                <div class="achieve-card" data-reveal>
+                    <div class="achieve-icon">☁️</div>
+                    <h3>Digital Transformation</h3>
+                    <p>In 2022/2023, collaborated with the AWS team to migrate all infrastructure and services of one of the largest Brazilian car rental companies to the cloud.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ARTICLES ========== -->
+    <section id="articles" class="articles">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">Knowledge sharing</span>
+                <h2 class="section-title">IT Articles</h2>
+            </div>
+            <div class="articles-grid">
+                <a href="https://medium.com/@alesson.viana" class="article-card" data-reveal target="_blank" rel="noopener noreferrer">
+                    <span class="article-source"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Medium</span>
+                    <h3>Integrating OpenAI Codex into VS Code using ChatGPT</h3>
+                    <span class="article-cta">Read article <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="https://medium.com/@alesson.viana" class="article-card" data-reveal target="_blank" rel="noopener noreferrer">
+                    <span class="article-source"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Medium</span>
+                    <h3>Building a complete Observability Stack on Raspberry Pi with K3S</h3>
+                    <span class="article-cta">Read article <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="https://medium.com/@alesson.viana" class="article-card" data-reveal target="_blank" rel="noopener noreferrer">
+                    <span class="article-source"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Medium</span>
+                    <h3>How I Built a Secure VPN Gateway for My Proxmox Homelab Using Tailscale</h3>
+                    <span class="article-cta">Read article <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="https://medium.com/@alesson.viana" class="article-card" data-reveal target="_blank" rel="noopener noreferrer">
+                    <span class="article-source"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Medium</span>
+                    <h3>Building a K3s Cluster on Raspberry Pi with Ansible</h3>
+                    <span class="article-cta">Read article <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="https://medium.com/@alesson.viana" class="article-card" data-reveal target="_blank" rel="noopener noreferrer">
+                    <span class="article-source"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Medium</span>
+                    <h3>Deploy a HA Kubernetes Cluster on Alpine Linux</h3>
+                    <span class="article-cta">Read article <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+                <a href="https://medium.com/@alesson.viana" class="article-card article-card--all" data-reveal target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    <strong>All articles on Medium</strong>
+                    <span>medium.com/@alesson.viana</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EDUCATION ========== -->
+    <section class="education">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">Academic background</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card" data-reveal>
+                    <div class="edu-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>MBA in Network Architecture and Cloud Computing</h3>
+                        <p class="edu-school">Business School Brasil</p>
+                        <p class="edu-period">Nov 2019 – Jan 2022 &nbsp;·&nbsp; Grade: <strong>9.5</strong></p>
+                    </div>
+                </div>
+                <div class="edu-card" data-reveal>
+                    <div class="edu-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Bachelor's Degree in Computer Networks / Network Administration</h3>
+                        <p class="edu-school">Faculdade de Tecnologia do Nordeste (FATENE)</p>
+                        <p class="edu-period">Jan 2014 – Aug 2017</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CERTIFICATIONS ========== -->
+    <section class="certifications">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">Credentials</span>
+                <h2 class="section-title">Certifications</h2>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card" data-reveal>
+                    <div class="cert-badge">AWS</div>
+                    <div>
+                        <h3>AWS Certified Cloud Practitioner</h3>
+                        <p>Amazon Web Services · Issued Oct 2022</p>
+                        <span class="cert-id">ID: 432760356</span>
+                    </div>
+                </div>
+                <div class="cert-card" data-reveal>
+                    <div class="cert-badge">OCI</div>
+                    <div>
+                        <h3>Oracle Cloud Infrastructure Foundations 2021</h3>
+                        <p>Oracle · Certified Associate</p>
+                    </div>
+                </div>
+                <div class="cert-card" data-reveal>
+                    <div class="cert-badge">SCR</div>
+                    <div>
+                        <h3>SCRUM Foundations</h3>
+                        <p>CertProf</p>
+                    </div>
+                </div>
+                <div class="cert-card" data-reveal>
+                    <div class="cert-badge">B2</div>
+                    <div>
+                        <h3>English Proficiency B2</h3>
+                        <p>GFT Technologies · Issued Apr 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-label">Get in touch</span>
+                <h2 class="section-title">Contact</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info" data-reveal>
+                    <h3>Have a project?<br>Let's talk!</h3>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of something great.</p>
+                    <div class="contact-links">
+                        <a href="mailto:alesson.viana@gmail.com" class="contact-link" aria-label="Send email to alesson.viana@gmail.com">
+                            <i class="fa fa-envelope" aria-hidden="true"></i><span>alesson.viana@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alesson-viana" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i><span>linkedin.com/in/alesson-viana</span>
+                        </a>
+                        <a href="https://github.com/alessonviana" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                            <i class="fa fa-github" aria-hidden="true"></i><span>github.com/alessonviana</span>
+                        </a>
+                        <a href="https://alessonviana.tech" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Personal blog">
+                            <i class="fa fa-globe" aria-hidden="true"></i><span>alessonviana.tech</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form" novalidate data-reveal>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Send Message <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                    <p class="form-msg" id="form-msg" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="footer-logo">Alesson<span>.</span></span>
+                    <p>Toronto, Ontario, Canada</p>
+                </div>
+                <p class="footer-copy">Designed with ❤️ by Alesson Viana</p>
+                <ul class="footer-social" role="list">
+                    <li><a href="mailto:alesson.viana@gmail.com" aria-label="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/alesson-viana" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="https://github.com/alessonviana" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                    <li><a href="https://medium.com/@alesson.viana" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a></li>
+                    <li><a href="https://alessonviana.tech" target="_blank" rel="noopener noreferrer" aria-label="Blog"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+                    <li><a href="https://instagram.com/alessonviana23" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
