@@ -185,7 +185,7 @@ svg {
   max-width: 680px;
 }
 
-.hero h1 span {
+.hero-kicker {
   display: flex;
   align-items: center;
   gap: 22px;
@@ -195,7 +195,7 @@ svg {
   margin-bottom: 12px;
 }
 
-.hero h1 span::before {
+.hero-kicker::before {
   content: "";
   width: clamp(56px, 6vw, 78px);
   height: 3px;
@@ -203,11 +203,34 @@ svg {
   box-shadow: 0 0 18px rgba(255, 107, 74, 0.42);
 }
 
+.hero-kicker-text {
+  display: inline-block;
+}
+
+.hero-title-line {
+  display: block;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+}
+
 .hero-description {
   max-width: 560px;
   margin-top: 28px;
   color: var(--muted);
   font-size: 1.06rem;
+}
+
+.hero-scramble {
+  font-variant-ligatures: none;
+}
+
+.hero-scramble .dud {
+  color: var(--accent);
+  opacity: 0.82;
+  text-shadow: 0 0 12px rgba(255, 107, 74, 0.72);
 }
 
 .hero-actions {
@@ -271,6 +294,39 @@ svg {
   max-width: none;
   object-fit: cover;
   object-position: center top;
+}
+
+.hero-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 64%, transparent 92%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 64%, transparent 92%);
+}
+
+.rain-char {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(245, 248, 250, 0.22);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0.34;
+  text-shadow: none;
+  transform: translate3d(0, 0, 0);
+  transition: color 120ms ease, opacity 120ms ease, text-shadow 120ms ease, font-size 120ms ease;
+  will-change: transform;
+}
+
+.rain-char.is-active {
+  color: var(--accent);
+  font-size: 1.35rem;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(255, 107, 74, 0.85), 0 0 26px rgba(255, 107, 74, 0.4);
 }
 
 .portrait-ring {
@@ -952,6 +1008,10 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+
+  .hero-rain {
+    display: none;
+  }
 }
 
 @media (min-width: 1600px) {
@@ -973,7 +1033,7 @@ svg {
     font-size: 4.35rem;
   }
 
-  .hero h1 span {
+  .hero-kicker {
     font-size: 2.25rem;
   }
 
@@ -1088,7 +1148,7 @@ svg {
     margin-inline: var(--page-gutter);
   }
 
-  .hero h1 span {
+  .hero-kicker {
     font-size: 2.2rem;
     gap: 16px;
   }
@@ -1200,13 +1260,13 @@ svg {
     font-size: 2.8rem;
   }
 
-  .hero h1 span {
+  .hero-kicker {
     align-items: flex-start;
     flex-direction: column;
     font-size: 1.65rem;
   }
 
-  .hero h1 span::before {
+  .hero-kicker::before {
     width: 72px;
   }
 
