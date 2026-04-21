@@ -1203,6 +1203,69 @@ main,
   width: 54%;
 }
 
+.recommendations {
+  padding-top: 70px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(45, 212, 191, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(7, 21, 29, 0) 0%, rgba(13, 34, 45, 0.18) 52%, rgba(7, 21, 29, 0) 100%);
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.recommendation-card {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 30px;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 84% 12%, rgba(255, 107, 74, 0.12), transparent 28%),
+    rgba(4, 14, 20, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 107, 74, 0.34);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34), 0 0 36px rgba(255, 107, 74, 0.12);
+}
+
+.recommendation-source {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.recommendation-card p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.recommendation-card strong {
+  color: var(--text);
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.recommendation-card strong::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--accent);
+}
+
 .articles {
   padding-top: 70px;
   background:
@@ -1743,6 +1806,14 @@ main,
 
   .projects-list {
     gap: 92px;
+  }
+
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-card {
+    min-height: 230px;
   }
 
   .articles-cta {
