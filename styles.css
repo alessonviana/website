@@ -30,6 +30,10 @@ html {
   background: var(--bg-deep);
 }
 
+html.js:not(.i18n-ready) body {
+  opacity: 0;
+}
+
 body {
   position: relative;
   min-height: 100vh;
@@ -41,6 +45,7 @@ body {
   background-size: 100px 100px, auto;
   font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
+  transition: opacity 160ms ease;
 }
 
 .asmr-background-canvas {
@@ -115,7 +120,7 @@ main,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
 }
 
 .logo {
@@ -129,7 +134,7 @@ main,
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: clamp(28px, 4vw, 58px);
+  gap: clamp(18px, 2.4vw, 42px);
 }
 
 .nav-menu a {
@@ -142,6 +147,42 @@ main,
 .nav-menu a:hover {
   color: var(--text);
   transform: translateY(-2px);
+}
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+.language-switcher button {
+  min-width: 38px;
+  min-height: 32px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--muted);
+  background: transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.language-switcher button:hover {
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.language-switcher button[aria-pressed="true"] {
+  color: #07151d;
+  background: var(--accent);
 }
 
 .nav-control,
@@ -524,9 +565,10 @@ main,
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 44px;
   margin-top: 54px;
+  max-width: 280px;
 }
 
 .stats strong {
@@ -2099,13 +2141,23 @@ body.testimonial-modal-open {
     margin-inline: var(--page-gutter);
   }
 
+  .logo {
+    order: 1;
+  }
+
   .nav-toggle {
+    order: 3;
     width: 42px;
     height: 42px;
     display: grid;
     align-content: center;
     gap: 6px;
     cursor: pointer;
+  }
+
+  .language-switcher {
+    order: 2;
+    margin-left: auto;
   }
 
   .nav-toggle span {
@@ -2117,6 +2169,7 @@ body.testimonial-modal-open {
   }
 
   .nav-menu {
+    order: 4;
     position: fixed;
     top: var(--header);
     right: 18px;
