@@ -1050,6 +1050,13 @@ main,
   inset: 0 0 auto;
 }
 
+.harris-preview {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 107, 74, 0.18), transparent 30%),
+    radial-gradient(circle at 18% 88%, rgba(45, 212, 191, 0.1), transparent 36%),
+    rgba(4, 14, 20, 0.78);
+}
+
 .career-preview-header {
   display: grid;
   gap: 8px;
