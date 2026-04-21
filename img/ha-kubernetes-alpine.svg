@@ -1,0 +1,351 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 864" role="img" aria-labelledby="title desc">
+  <title id="title">HA Kubernetes Cluster on Alpine Linux</title>
+  <desc id="desc">Architecture diagram for a highly available Kubernetes cluster on Alpine Linux with three masters, workers, NGINX, Keepalived, VRRP and etcd.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#03101a"/>
+      <stop offset="1" stop-color="#00070d"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#185e9e"/>
+      <stop offset="1" stop-color="#0d3156"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1">
+      <stop offset="0" stop-color="#7ed957"/>
+      <stop offset="1" stop-color="#42c267"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#2ca9ff"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#9aa8b5"/>
+    </marker>
+    <style>
+      .bg{fill:url(#bg)}
+      .panel{fill:#03131d;stroke:#294353;stroke-width:2}
+      .soft{fill:#061923;stroke:#294353;stroke-width:2}
+      .dash{fill:none;stroke:#2ca9ff;stroke-width:1.4;stroke-dasharray:5 4}
+      .purpleDash{fill:none;stroke:#b15cff;stroke-width:1.4;stroke-dasharray:6 5}
+      .title{font:800 52px Arial,sans-serif;letter-spacing:7px;fill:#fff}
+      .sub{font:800 33px Arial,sans-serif;letter-spacing:3px;fill:#5c8dff}
+      .tag{font:400 20px Arial,sans-serif;letter-spacing:3px;fill:#d8dee5}
+      .label{font:800 19px Arial,sans-serif;letter-spacing:1.6px;fill:#5d8cff}
+      .greenText{font:800 18px Arial,sans-serif;letter-spacing:1px;fill:#7ed957}
+      .white{fill:#fff}
+      .muted{fill:#d8dee5}
+      .small{font:400 15px Arial,sans-serif;fill:#e8edf2}
+      .tiny{font:400 13px Arial,sans-serif;fill:#e8edf2}
+      .nodeTitle{font:800 17px Arial,sans-serif;letter-spacing:1px;fill:#7ed957}
+      .nodeName{font:700 16px Arial,sans-serif;fill:#fff}
+      .arrow{stroke:#2ca9ff;stroke-width:1.7;fill:none;marker-end:url(#arrowBlue)}
+      .grayArrow{stroke:#9aa8b5;stroke-width:2;fill:none;marker-end:url(#arrowGray)}
+      .component{font:400 16px Arial,sans-serif;fill:#fff}
+    </style>
+  </defs>
+
+  <rect class="bg" width="1536" height="864"/>
+
+  <g transform="translate(32 22)">
+    <path d="M28 0h55c14 0 25 11 25 25v43c0 14-11 25-25 25H28C14 93 3 82 3 68V25C3 11 14 0 28 0z" fill="url(#blue)"/>
+    <path d="M19 56l31-30 22 23 15-15 28 28h-25L72 46 57 62 50 55l-11 11z" fill="#fff"/>
+  </g>
+  <text x="154" y="61" class="title">HA KUBERNETES CLUSTER</text>
+  <text x="154" y="108" class="sub">ON ALPINE LINUX</text>
+  <text x="154" y="140" class="tag">Lightweight. Secure. Highly Available.</text>
+
+  <g transform="translate(830 35)">
+    <text x="0" y="75" class="component">LIGHTWEIGHT</text>
+    <text x="-2" y="98" class="small">Minimal footprint</text>
+    <path d="M44 7c18 0 33-6 46-18-4 19-15 34-33 44-12 7-21 17-27 30 0-23 5-41 14-56z" fill="#5c8dff"/>
+  </g>
+  <g transform="translate(999 35)">
+    <text x="0" y="75" class="component">SECURE</text>
+    <text x="-35" y="98" class="small">Hardened by default</text>
+    <path d="M28 0c20 12 36 12 56 0v30c0 28-19 46-28 51-9-5-28-23-28-51z" fill="none" stroke="#2d8ad7" stroke-width="3"/>
+  </g>
+  <g transform="translate(1175 35)">
+    <text x="-35" y="75" class="component">HIGH AVAILABILITY</text>
+    <text x="-50" y="98" class="small">No single point of failure</text>
+    <circle cx="28" cy="23" r="24" fill="none" stroke="#65c748" stroke-width="4"/>
+    <path d="M16 21l9 10 18-21" fill="none" stroke="#65c748" stroke-width="4"/>
+  </g>
+  <g transform="translate(1348 35)">
+    <text x="-20" y="75" class="component">PRODUCTION READY</text>
+    <text x="3" y="98" class="small">Built for reliability</text>
+    <path d="M58 12l24 14v28L58 68 34 54V26z" fill="#3377de" stroke="#8bc4ff" stroke-width="2"/>
+    <path d="M58 20v40M42 31l32 18M74 31L42 49" stroke="#fff" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(25 162)">
+    <rect width="310" height="250" rx="10" class="panel"/>
+    <text x="34" y="32" class="label">ARCHITECTURE OVERVIEW</text>
+    <text x="34" y="58" class="small">A highly available Kubernetes cluster</text>
+    <text x="34" y="80" class="small">deployed on Alpine Linux using</text>
+    <text x="34" y="102" class="small">robust, open-source components.</text>
+    <g transform="translate(52 132)">
+      <path d="M0 18l24-14 24 14v28L24 60 0 46z" fill="#3377de" stroke="#8bc4ff" stroke-width="2"/>
+      <path d="M24 12v40M8 23l32 18M40 23L8 41" stroke="#fff" stroke-width="2"/>
+      <text x="64" y="24" class="nodeName">Kubernetes</text>
+      <text x="64" y="47" class="small">Container orchestration</text>
+    </g>
+    <g transform="translate(52 190)">
+      <path d="M0 0h42l22 28-22 28H0l21-28z" fill="#174d82"/>
+      <path d="M13 35l18-17 14 15 9-9 13 14" stroke="#fff" stroke-width="5" fill="none"/>
+      <text x="64" y="20" class="nodeName">Alpine Linux</text>
+      <text x="64" y="43" class="small">Minimal and secure OS</text>
+    </g>
+  </g>
+
+  <g transform="translate(25 425)">
+    <rect width="310" height="220" rx="10" class="panel"/>
+    <text x="25" y="32" class="label">NETWORK OVERVIEW</text>
+    <g transform="translate(56 68)">
+      <path d="M0 0h26M13-13v26M13-13l-8-8M13-13l8-8M13 13l-8 8M13 13l8 8" stroke="#7d5dff" stroke-width="3"/>
+      <text x="46" y="-5" class="small">Pod Network (Cilium / Calico)</text>
+      <text x="46" y="18" class="small">10.244.0.0/16</text>
+      <path d="M0 52h26M13 39v26M13 39l-8-8M13 39l8-8M13 65l-8 8M13 65l8 8" stroke="#5c8dff" stroke-width="3"/>
+      <text x="46" y="48" class="small">Service Network (ClusterIP)</text>
+      <text x="46" y="71" class="small">10.96.0.0/12</text>
+      <circle cx="13" cy="116" r="12" fill="none" stroke="#2ca9ff" stroke-width="3"/>
+      <text x="46" y="111" class="small">API Endpoint (VIP)</text>
+      <text x="46" y="134" class="small">192.168.1.10:6443</text>
+    </g>
+  </g>
+
+  <g transform="translate(358 162)">
+    <rect width="644" height="316" rx="10" class="panel"/>
+    <text x="170" y="28" class="label">CONTROL PLANE (HIGH AVAILABILITY)</text>
+    <g transform="translate(22 42)">
+      <g>
+        <rect width="198" height="258" rx="8" class="soft"/>
+        <text x="58" y="24" class="nodeTitle">MASTER 1</text>
+        <path d="M38 44h26l14 17-14 17H38l13-17z" fill="#174d82"/>
+        <path d="M46 66l11-11 9 10 6-6 8 9" stroke="#fff" stroke-width="3" fill="none"/>
+        <text x="90" y="65" class="small">Alpine Linux</text>
+        <rect x="16" y="86" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <rect x="16" y="119" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <rect x="16" y="152" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <text x="54" y="106" class="tiny">kube-apiserver</text>
+        <text x="32" y="139" class="tiny">kube-controller-manager</text>
+        <text x="59" y="172" class="tiny">kube-scheduler</text>
+        <rect x="16" y="188" width="166" height="54" rx="4" fill="#061923" stroke="#294353"/>
+        <path d="M36 200c13 8 24 8 37 0v19c0 17-12 28-18 31-6-3-19-14-19-31z" fill="#2d3742" stroke="#d8dee5"/>
+        <path d="M45 216l8 10 15-18" stroke="#ff5454" stroke-width="4" fill="none"/>
+        <text x="72" y="212" class="nodeName">keepalived</text>
+        <text x="72" y="232" class="tiny">VRRP</text>
+        <text x="62" y="263" class="tiny">192.168.1.11</text>
+      </g>
+      <g transform="translate(206 0)">
+        <rect width="198" height="258" rx="8" class="soft"/>
+        <text x="58" y="24" class="nodeTitle">MASTER 2</text>
+        <path d="M38 44h26l14 17-14 17H38l13-17z" fill="#174d82"/>
+        <path d="M46 66l11-11 9 10 6-6 8 9" stroke="#fff" stroke-width="3" fill="none"/>
+        <text x="90" y="65" class="small">Alpine Linux</text>
+        <rect x="16" y="86" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <rect x="16" y="119" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <rect x="16" y="152" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <text x="54" y="106" class="tiny">kube-apiserver</text>
+        <text x="32" y="139" class="tiny">kube-controller-manager</text>
+        <text x="59" y="172" class="tiny">kube-scheduler</text>
+        <rect x="16" y="188" width="166" height="54" rx="4" fill="#061923" stroke="#294353"/>
+        <path d="M36 200c13 8 24 8 37 0v19c0 17-12 28-18 31-6-3-19-14-19-31z" fill="#2d3742" stroke="#d8dee5"/>
+        <path d="M45 216l8 10 15-18" stroke="#ff5454" stroke-width="4" fill="none"/>
+        <text x="72" y="212" class="nodeName">keepalived</text>
+        <text x="72" y="232" class="tiny">VRRP</text>
+        <text x="62" y="263" class="tiny">192.168.1.12</text>
+      </g>
+      <g transform="translate(412 0)">
+        <rect width="198" height="258" rx="8" class="soft"/>
+        <text x="58" y="24" class="nodeTitle">MASTER 3</text>
+        <path d="M38 44h26l14 17-14 17H38l13-17z" fill="#174d82"/>
+        <path d="M46 66l11-11 9 10 6-6 8 9" stroke="#fff" stroke-width="3" fill="none"/>
+        <text x="90" y="65" class="small">Alpine Linux</text>
+        <rect x="16" y="86" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <rect x="16" y="119" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <rect x="16" y="152" width="166" height="28" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+        <text x="54" y="106" class="tiny">kube-apiserver</text>
+        <text x="32" y="139" class="tiny">kube-controller-manager</text>
+        <text x="59" y="172" class="tiny">kube-scheduler</text>
+        <rect x="16" y="188" width="166" height="54" rx="4" fill="#061923" stroke="#294353"/>
+        <path d="M36 200c13 8 24 8 37 0v19c0 17-12 28-18 31-6-3-19-14-19-31z" fill="#2d3742" stroke="#d8dee5"/>
+        <path d="M45 216l8 10 15-18" stroke="#ff5454" stroke-width="4" fill="none"/>
+        <text x="72" y="212" class="nodeName">keepalived</text>
+        <text x="72" y="232" class="tiny">VRRP</text>
+        <text x="62" y="263" class="tiny">192.168.1.13</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(1038 202)">
+    <rect width="174" height="274" rx="8" class="panel"/>
+    <text x="26" y="28" style="font:800 17px Arial,sans-serif;letter-spacing:1px;fill:#b77cff">ETCD CLUSTER</text>
+    <g transform="translate(14 50)">
+      <rect width="146" height="70" rx="6" class="soft"/>
+      <circle cx="30" cy="35" r="22" fill="#0c4a88"/><text x="21" y="42" style="font:800 24px Arial;fill:#fff">⚙</text>
+      <text x="64" y="31" class="nodeName">etcd 1</text><text x="64" y="51" class="tiny">192.168.1.21</text>
+      <rect y="82" width="146" height="70" rx="6" class="soft"/>
+      <circle cx="30" cy="117" r="22" fill="#0c4a88"/><text x="21" y="124" style="font:800 24px Arial;fill:#fff">⚙</text>
+      <text x="64" y="113" class="nodeName">etcd 2</text><text x="64" y="133" class="tiny">192.168.1.22</text>
+      <rect y="164" width="146" height="70" rx="6" class="soft"/>
+      <circle cx="30" cy="199" r="22" fill="#0c4a88"/><text x="21" y="206" style="font:800 24px Arial;fill:#fff">⚙</text>
+      <text x="64" y="195" class="nodeName">etcd 3</text><text x="64" y="215" class="tiny">192.168.1.23</text>
+    </g>
+  </g>
+  <path class="purpleDash" d="M986 286h60"/>
+  <path class="purpleDash" d="M986 354h60"/>
+  <path class="purpleDash" d="M986 432h60"/>
+
+  <g transform="translate(1245 162)">
+    <rect width="266" height="300" rx="10" class="panel"/>
+    <text x="26" y="32" style="font:800 19px Arial,sans-serif;letter-spacing:1px;fill:#7ed957">BENEFITS</text>
+    <g class="small" transform="translate(28 64)">
+      <circle cx="10" cy="0" r="8" fill="#7ed957"/><path d="M6-1l3 4 8-9" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="28" y="4">High availability control plane</text>
+      <text x="28" y="25">with no single point of failure</text>
+      <circle cx="10" cy="56" r="8" fill="#7ed957"/><path d="M6 55l3 4 8-9" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="28" y="61">Lightweight Alpine Linux</text>
+      <text x="28" y="82">for lower resource usage</text>
+      <circle cx="10" cy="112" r="8" fill="#7ed957"/><path d="M6 111l3 4 8-9" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="28" y="117">Secure by default</text>
+      <text x="28" y="138">with minimal attack surface</text>
+      <circle cx="10" cy="168" r="8" fill="#7ed957"/><path d="M6 167l3 4 8-9" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="28" y="173">Scalable and production ready</text>
+      <circle cx="10" cy="214" r="8" fill="#7ed957"/><path d="M6 213l3 4 8-9" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="28" y="219">Open source and cloud native</text>
+    </g>
+  </g>
+
+  <g transform="translate(379 503)">
+    <rect width="770" height="82" rx="10" class="panel"/>
+    <rect x="26" y="18" width="48" height="46" rx="5" fill="#2fa244"/>
+    <path d="M37 50V31h13l22 19V31h13v37H72L50 49v19H37z" fill="#fff"/>
+    <text x="92" y="36" class="nodeName" style="font-size:20px">NGINX</text>
+    <text x="92" y="59" class="tiny">(Load Balancer)</text>
+    <text x="276" y="31" class="component">VIRTUAL IP (VIP)</text>
+    <text x="289" y="57" class="component" style="font-size:24px">192.168.1.10</text>
+    <text x="242" y="75" class="tiny">Provides a single endpoint for the Kubernetes API</text>
+    <path d="M586 20c20 12 36 12 56 0v30c0 28-19 46-28 51-9-5-28-23-28-51z" fill="#2d3742" stroke="#d8dee5"/>
+    <path d="M599 42l10 12 20-24" stroke="#ff5454" stroke-width="5" fill="none"/>
+    <text x="657" y="37" class="nodeName" style="font-size:20px">keepalived</text>
+    <text x="657" y="60" class="tiny">VRRP</text>
+  </g>
+
+  <g transform="translate(357 626)">
+    <g>
+      <rect width="244" height="194" rx="10" class="panel"/>
+      <text x="74" y="32" class="nodeTitle">WORKER 1</text>
+      <path d="M48 56h36l18 23-18 23H48l18-23z" fill="#174d82"/>
+      <path d="M61 86l12-12 10 11 7-7 8 9" stroke="#fff" stroke-width="3" fill="none"/>
+      <text x="92" y="80" class="small">Alpine Linux</text>
+      <rect x="16" y="105" width="102" height="32" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+      <rect x="126" y="105" width="102" height="32" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+      <text x="51" y="126" class="tiny">kubelet</text>
+      <text x="152" y="126" class="tiny">kube-proxy</text>
+      <rect x="16" y="145" width="212" height="44" rx="5" class="soft"/>
+      <text x="78" y="172" class="small">containerd</text>
+      <text x="85" y="209" class="tiny">192.168.1.31</text>
+    </g>
+    <g transform="translate(253 0)">
+      <rect width="244" height="194" rx="10" class="panel"/>
+      <text x="74" y="32" class="nodeTitle">WORKER 2</text>
+      <path d="M48 56h36l18 23-18 23H48l18-23z" fill="#174d82"/>
+      <path d="M61 86l12-12 10 11 7-7 8 9" stroke="#fff" stroke-width="3" fill="none"/>
+      <text x="92" y="80" class="small">Alpine Linux</text>
+      <rect x="16" y="105" width="102" height="32" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+      <rect x="126" y="105" width="102" height="32" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+      <text x="51" y="126" class="tiny">kubelet</text><text x="152" y="126" class="tiny">kube-proxy</text>
+      <rect x="16" y="145" width="212" height="44" rx="5" class="soft"/>
+      <text x="78" y="172" class="small">containerd</text>
+      <text x="85" y="209" class="tiny">192.168.1.32</text>
+    </g>
+    <g transform="translate(538 0)">
+      <rect width="253" height="194" rx="10" class="panel"/>
+      <text x="84" y="32" class="nodeTitle">WORKER N</text>
+      <path d="M48 56h36l18 23-18 23H48l18-23z" fill="#174d82"/>
+      <path d="M61 86l12-12 10 11 7-7 8 9" stroke="#fff" stroke-width="3" fill="none"/>
+      <text x="92" y="80" class="small">Alpine Linux</text>
+      <rect x="16" y="105" width="106" height="32" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+      <rect x="132" y="105" width="106" height="32" rx="4" fill="#0b3e72" stroke="#2b7dc3"/>
+      <text x="52" y="126" class="tiny">kubelet</text><text x="158" y="126" class="tiny">kube-proxy</text>
+      <rect x="16" y="145" width="222" height="44" rx="5" class="soft"/>
+      <text x="82" y="172" class="small">containerd</text>
+      <text x="91" y="209" class="tiny">192.168.1.N</text>
+    </g>
+  </g>
+
+  <g transform="translate(1245 475)">
+    <rect width="266" height="390" rx="10" class="panel"/>
+    <text x="26" y="32" class="label">COMPONENTS STACK</text>
+    <g transform="translate(30 65)" class="component">
+      <path d="M0 0l26-15L52 0v30L26 45 0 30z" fill="#3377de" stroke="#8bc4ff" stroke-width="2"/>
+      <text x="62" y="20">Kubernetes</text>
+      <path d="M0 68h42l22 28-22 28H0l21-28z" fill="#174d82"/>
+      <path d="M13 103l18-17 14 15 9-9 13 14" stroke="#fff" stroke-width="5" fill="none"/>
+      <text x="62" y="102">Alpine Linux</text>
+      <path d="M5 150c18 11 33 11 51 0v28c0 25-17 41-25 46-9-5-26-21-26-46z" fill="#2d3742" stroke="#d8dee5"/>
+      <path d="M18 172l10 12 20-24" stroke="#ff5454" stroke-width="5" fill="none"/>
+      <text x="62" y="177">Keepalived + VRRP</text>
+      <circle cx="27" cy="256" r="25" fill="#0c4a88"/><text x="16" y="265" style="font:800 30px Arial;fill:#fff">⚙</text>
+      <text x="62" y="262">etcd</text>
+      <rect x="5" y="304" width="45" height="45" fill="none" stroke="#d8dee5" stroke-width="2"/>
+      <text x="62" y="334">containerd</text>
+      <circle cx="27" cy="382" r="17" fill="#63c74d"/>
+      <text x="62" y="388">100% Open Source</text>
+    </g>
+  </g>
+
+  <g transform="translate(25 655)">
+    <rect width="1486" height="128" rx="10" class="panel"/>
+    <text x="25" y="34" class="label">HOW IT WORKS</text>
+    <g transform="translate(68 58)">
+      <circle cx="24" cy="26" r="18" fill="#2e8cff"/><circle cx="0" cy="42" r="12" fill="#2e8cff"/><circle cx="48" cy="42" r="12" fill="#2e8cff"/>
+      <text x="-28" y="80" class="tiny">User / Dev</text>
+      <text x="-48" y="100" class="tiny">kubectl apply ...</text>
+    </g>
+    <path class="grayArrow" d="M196 718h60"/>
+    <rect x="314" y="697" width="46" height="44" rx="5" fill="#2fa244"/>
+    <path d="M323 729v-22h11l17 17v-17h10v33h-11l-17-17v17h-10z" fill="#fff"/>
+    <text x="269" y="771" class="tiny">Traffic goes to</text>
+    <text x="267" y="790" class="tiny">the VIP (192.168.1.10)</text>
+    <path class="grayArrow" d="M408 718h60"/>
+    <path d="M535 692c18 11 33 11 51 0v28c0 25-17 41-25 46-9-5-26-21-26-46z" fill="#2d3742" stroke="#d8dee5"/>
+    <path d="M548 714l10 12 20-24" stroke="#ff5454" stroke-width="5" fill="none"/>
+    <text x="494" y="771" class="tiny">Keepalived (VRRP)</text>
+    <text x="490" y="790" class="tiny">routes to an active</text>
+    <text x="526" y="808" class="tiny">control plane</text>
+    <path class="grayArrow" d="M630 718h60"/>
+    <path d="M744 692l28-16 28 16v32l-28 16-28-16z" fill="#3377de" stroke="#8bc4ff" stroke-width="2"/>
+    <path d="M772 686v44M752 699l36 20M790 699l-36 20" stroke="#fff" stroke-width="2"/>
+    <text x="714" y="771" class="tiny">Kubernetes API</text>
+    <text x="700" y="790" class="tiny">processes the request</text>
+    <path class="grayArrow" d="M842 718h60"/>
+    <circle cx="975" cy="717" r="26" fill="#0c4a88"/><text x="963" y="727" style="font:800 30px Arial;fill:#fff">⚙</text>
+    <text x="921" y="771" class="tiny">Data stored in the</text>
+    <text x="914" y="790" class="tiny">HA etcd cluster</text>
+    <path class="grayArrow" d="M1048 718h60"/>
+    <g transform="translate(1160 696)" stroke="#5c8dff" fill="none">
+      <rect width="18" height="18"/><rect x="28" width="18" height="18"/><rect x="56" width="18" height="18"/>
+      <rect y="28" width="18" height="18"/><rect x="28" y="28" width="18" height="18"/>
+    </g>
+    <text x="1118" y="771" class="tiny">Workloads are</text>
+    <text x="1113" y="790" class="tiny">scheduled to workers</text>
+    <path class="grayArrow" d="M1265 718h60"/>
+    <circle cx="1390" cy="717" r="28" fill="none" stroke="#65c748" stroke-width="4"/>
+    <path d="M1377 714l10 11 20-24" fill="none" stroke="#65c748" stroke-width="5"/>
+    <text x="1337" y="771" class="tiny">High availability</text>
+    <text x="1355" y="790" class="tiny">ensured!</text>
+  </g>
+
+  <path class="arrow" d="M473 478v-22"/>
+  <path class="arrow" d="M684 478v-22"/>
+  <path class="arrow" d="M895 478v-22"/>
+  <path class="arrow" d="M734 585v40"/>
+  <path class="arrow" d="M1026 585v40"/>
+</svg>

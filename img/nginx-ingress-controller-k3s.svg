@@ -1,0 +1,281 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 864" role="img" aria-labelledby="title desc">
+  <title id="title">NGINX Ingress Controller on K3s</title>
+  <desc id="desc">Architecture diagram for NGINX Ingress Controller on a K3s cluster, showing DNS, ingress rules, services, pods, deployment options, TLS termination and benefits.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#03101a"/>
+      <stop offset="1" stop-color="#00070d"/>
+    </linearGradient>
+    <linearGradient id="nginx" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b8c2f"/>
+      <stop offset="1" stop-color="#056722"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#9aa8b5"/>
+    </marker>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#2ca9ff"/>
+    </marker>
+    <style>
+      .bg{fill:url(#bg)}
+      .panel{fill:#03131d;stroke:#294353;stroke-width:2}
+      .soft{fill:#061923;stroke:#294353;stroke-width:2}
+      .greenDash{fill:none;stroke:#67d33f;stroke-width:1.4;stroke-dasharray:4 4}
+      .blueDash{fill:none;stroke:#2ca9ff;stroke-width:1.4;stroke-dasharray:5 4}
+      .purpleDash{fill:none;stroke:#b15cff;stroke-width:1.4;stroke-dasharray:5 4}
+      .title{font:800 42px Arial,sans-serif;letter-spacing:6px;fill:#fff}
+      .sub{font:800 38px Arial,sans-serif;letter-spacing:2px;fill:#71d957}
+      .tag{font:400 21px Arial,sans-serif;fill:#d8dee5}
+      .label{font:800 18px Arial,sans-serif;letter-spacing:1.5px;fill:#71d957}
+      .blue{font:800 16px Arial,sans-serif;letter-spacing:1px;fill:#58a6ff}
+      .white{fill:#fff}
+      .muted{fill:#d8dee5}
+      .small{font:400 15px Arial,sans-serif;fill:#e8edf2}
+      .tiny{font:400 13px Arial,sans-serif;fill:#e8edf2}
+      .code{font:400 13px "SFMono-Regular",Consolas,monospace;fill:#e8edf2}
+      .codeGreen{font:400 13px "SFMono-Regular",Consolas,monospace;fill:#71d957}
+      .codeBlue{font:400 13px "SFMono-Regular",Consolas,monospace;fill:#58a6ff}
+      .name{font:800 17px Arial,sans-serif;fill:#fff}
+      .arrow{stroke:#9aa8b5;stroke-width:2;fill:none;marker-end:url(#arrow)}
+      .blueArrow{stroke:#2ca9ff;stroke-width:1.6;fill:none;marker-end:url(#blueArrow)}
+    </style>
+  </defs>
+
+  <rect class="bg" width="1536" height="864"/>
+
+  <g transform="translate(28 15)">
+    <path d="M48 0l48 28v56l-48 28L0 84V28z" fill="url(#nginx)"/>
+    <path d="M20 73V34h16l28 31V34h16v45H64L36 49v30H20z" fill="#fff"/>
+  </g>
+  <text x="142" y="55" class="title">NGINX INGRESS CONTROLLER</text>
+  <text x="142" y="104" class="sub">ON K3S</text>
+  <text x="142" y="133" class="tag">High-performance ingress routing for your K3s cluster</text>
+
+  <g transform="translate(738 15)">
+    <rect width="782" height="148" rx="14" class="panel"/>
+    <g transform="translate(48 24)">
+      <path d="M2 48a30 30 0 0 1 58 0" fill="none" stroke="#6ed957" stroke-width="4"/>
+      <path d="M31 49l17-22M19 49h24" stroke="#6ed957" stroke-width="4"/>
+      <text x="-29" y="82" class="name">HIGH PERFORMANCE</text>
+      <text x="-12" y="104" class="tiny">Optimized for</text><text x="-22" y="123" class="tiny">high traffic and low</text><text x="3" y="142" class="tiny">latency</text>
+    </g>
+    <path d="M146 20v112" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(191 23)">
+      <path d="M20 0c20 11 36 11 56 0v30c0 28-19 46-28 51-9-5-28-23-28-51z" fill="none" stroke="#58a6ff" stroke-width="4"/>
+      <path d="M38 36l10 10 20-24" stroke="#58a6ff" stroke-width="4" fill="none"/>
+      <text x="-5" y="83" class="name">RELIABLE</text>
+      <text x="-22" y="104" class="tiny">Battle-tested, stable</text><text x="-10" y="123" class="tiny">and widely</text><text x="2" y="142" class="tiny">adopted</text>
+    </g>
+    <path d="M279 20v112" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(327 18)">
+      <circle cx="20" cy="40" r="9" fill="none" stroke="#58a6ff" stroke-width="4"/>
+      <circle cx="74" cy="16" r="9" fill="none" stroke="#58a6ff" stroke-width="4"/>
+      <circle cx="74" cy="66" r="9" fill="none" stroke="#58a6ff" stroke-width="4"/>
+      <path d="M28 36l38-17M28 44l38 18" stroke="#58a6ff" stroke-width="4"/>
+      <text x="-22" y="87" class="name">ADVANCED ROUTING</text>
+      <text x="-6" y="108" class="tiny">Path, host and header</text><text x="-6" y="127" class="tiny">based routing, rewrites</text><text x="38" y="146" class="tiny">and more</text>
+    </g>
+    <path d="M446 20v112" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(492 24)">
+      <path d="M16 44V24c0-17 30-17 30 0v20" fill="none" stroke="#71d957" stroke-width="4"/>
+      <rect x="5" y="42" width="52" height="40" rx="4" fill="none" stroke="#71d957" stroke-width="4"/>
+      <text x="5" y="83" class="name">SECURE</text>
+      <text x="-20" y="104" class="tiny">TLS termination,</text><text x="-24" y="123" class="tiny">cert-manager</text><text x="-14" y="142" class="tiny">integration</text>
+    </g>
+    <path d="M596 20v112" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(645 19)">
+      <path d="M31 0l32 18v37L31 73-1 55V18z" fill="#3377de" stroke="#8bc4ff" stroke-width="2"/>
+      <path d="M31 8v57M10 22l42 24M52 22L10 46" stroke="#fff" stroke-width="2"/>
+      <text x="-29" y="87" class="name">KUBERNETES NATIVE</text>
+      <text x="-10" y="108" class="tiny">Built for Kubernetes,</text><text x="-12" y="127" class="tiny">works seamlessly</text><text x="18" y="146" class="tiny">with K3s</text>
+    </g>
+  </g>
+
+  <g transform="translate(20 154)">
+    <rect width="287" height="256" rx="10" class="panel"/>
+    <text x="18" y="29" class="label">WHAT IS NGINX INGRESS CONTROLLER?</text>
+    <text x="18" y="64" class="small">NGINX Ingress Controller is an ingress</text>
+    <text x="18" y="86" class="small">controller for Kubernetes using NGINX</text>
+    <text x="18" y="108" class="small">as a reverse proxy and load balancer.</text>
+    <text x="18" y="130" class="small">It implements Kubernetes Ingress</text>
+    <text x="18" y="152" class="small">resources to manage external access</text>
+    <text x="18" y="174" class="small">to services in your cluster.</text>
+    <g transform="translate(20 208)" class="small">
+      <circle cx="8" cy="0" r="8" fill="#69d45b"/><path d="M4-1l3 4 8-9" stroke="#03101d" stroke-width="2" fill="none"/><text x="25" y="5">Fast and scalable</text>
+      <circle cx="8" cy="28" r="8" fill="#69d45b"/><path d="M4 27l3 4 8-9" stroke="#03101d" stroke-width="2" fill="none"/><text x="25" y="33">Powerful routing features</text>
+      <circle cx="8" cy="56" r="8" fill="#69d45b"/><path d="M4 55l3 4 8-9" stroke="#03101d" stroke-width="2" fill="none"/><text x="25" y="61">Integrated with Kubernetes</text>
+    </g>
+  </g>
+
+  <g transform="translate(20 420)">
+    <rect width="287" height="193" rx="10" class="panel"/>
+    <text x="18" y="30" class="label">REQUIREMENTS</text>
+    <rect x="22" y="52" width="38" height="38" rx="4" fill="#f7b718"/>
+    <path d="M41 61v15m0 0-12 8m12-8 12 8" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <text x="78" y="64" class="name">K3s Cluster</text><text x="78" y="85" class="small">(v1.20+)</text>
+    <path d="M40 105l23 13v26l-23 13-23-13v-26z" fill="#3377de" stroke="#8bc4ff" stroke-width="2"/>
+    <path d="M40 111v40M25 120l30 17M55 120l-30 17" stroke="#fff" stroke-width="2"/>
+    <text x="78" y="123" class="name">kubectl configured</text><text x="78" y="144" class="small">to your cluster</text>
+    <text x="21" y="178" class="name">HELM</text><text x="78" y="178" class="name">Helm 3.x</text><text x="78" y="199" class="small">(optional but recommended)</text>
+  </g>
+
+  <g transform="translate(318 153)">
+    <rect width="500" height="610" rx="10" class="panel"/>
+    <text x="18" y="31" class="label">ARCHITECTURE OVERVIEW</text>
+    <g transform="translate(40 70)">
+      <text x="0" y="0" class="small">USERS</text>
+      <rect x="-14" y="20" width="66" height="66" rx="8" class="soft"/>
+      <circle cx="6" cy="46" r="9" fill="#9aa8b5"/><circle cx="25" cy="46" r="9" fill="#9aa8b5"/><circle cx="44" cy="46" r="9" fill="#9aa8b5"/>
+      <rect x="7" y="58" width="36" height="16" fill="#9aa8b5"/>
+      <path class="arrow" d="M63 53h58"/>
+      <circle cx="151" cy="53" r="25" fill="none" stroke="#9aa8b5" stroke-width="4"/>
+      <path d="M126 53h50M151 28c-13 17-13 34 0 50M151 28c13 17 13 34 0 50" stroke="#9aa8b5" stroke-width="3" fill="none"/>
+      <text x="116" y="105" class="small">DNS</text><text x="112" y="128" class="tiny">example.com</text>
+      <path class="arrow" d="M187 53h55"/>
+      <g transform="translate(270 -34)">
+        <rect width="206" height="238" rx="8" class="greenDash"/>
+        <text x="31" y="25" class="label" style="font-size:14px">INGRESS CONTROLLER</text>
+        <text x="76" y="46" class="label" style="font-size:14px">(NGINX)</text>
+        <path d="M103 78l43 25v50l-43 25-43-25v-50z" fill="url(#nginx)"/>
+        <path d="M78 145v-55h18l34 38V90h17v55h-18L96 108v37z" fill="#fff"/>
+        <text x="18" y="215" class="tiny">NGINX Ingress Controller Pod(s)</text>
+        <g transform="translate(30 184)">
+          <path d="M0 11l18-10 18 10v22L18 43 0 33z" fill="#1a9f31" stroke="#8ee88a"/>
+          <path d="M54 11l18-10 18 10v22L72 43 54 33z" fill="#1a9f31" stroke="#8ee88a"/>
+          <path d="M108 11l18-10 18 10v22l-18 10-18-10z" fill="#1a9f31" stroke="#8ee88a"/>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(520 42)">
+      <rect width="336" height="263" rx="8" class="panel"/>
+    </g>
+  </g>
+
+  <g transform="translate(836 195)">
+    <rect width="336" height="263" rx="10" class="panel"/>
+    <text x="105" y="-9" class="blue">K3S CLUSTER</text>
+    <rect x="14" y="23" width="308" height="90" rx="6" class="soft"/>
+    <text x="28" y="52" class="small">Namespace: app-1</text>
+    <path d="M38 63l15-9 15 9v28l-15 9-15-9z" fill="#176bd4" stroke="#75baff"/>
+    <text x="78" y="79" class="small">Service</text>
+    <path class="arrow" d="M121 73h55"/>
+    <g fill="#176bd4" stroke="#75baff">
+      <path d="M190 58l15-9 15 9v28l-15 9-15-9z"/>
+      <path d="M231 58l15-9 15 9v28l-15 9-15-9z"/>
+      <path d="M272 58l15-9 15 9v28l-15 9-15-9z"/>
+    </g>
+    <text x="231" y="102" class="tiny">Pods</text>
+    <rect x="14" y="137" width="308" height="90" rx="6" class="soft"/>
+    <text x="28" y="166" class="small">Namespace: app-2</text>
+    <path d="M38 177l15-9 15 9v28l-15 9-15-9z" fill="#176bd4" stroke="#75baff"/>
+    <text x="78" y="193" class="small">Service</text>
+    <path class="arrow" d="M121 187h55"/>
+    <g fill="#176bd4" stroke="#75baff">
+      <path d="M190 172l15-9 15 9v28l-15 9-15-9z"/>
+      <path d="M231 172l15-9 15 9v28l-15 9-15-9z"/>
+      <path d="M272 172l15-9 15 9v28l-15 9-15-9z"/>
+    </g>
+    <text x="231" y="216" class="tiny">Pods</text>
+  </g>
+  <path class="blueDash" d="M818 297h45v-33"/>
+  <path class="blueDash" d="M818 398h45v-20"/>
+
+  <g transform="translate(1215 170)">
+    <rect width="304" height="302" rx="10" class="panel"/>
+    <text x="18" y="31" class="label">HOW IT WORKS</text>
+    <g class="small" transform="translate(18 62)">
+      <circle cx="9" cy="0" r="9" fill="#64c83c"/><text x="5" y="5" class="tiny">1</text>
+      <text x="30" y="5">A user accesses your application</text><text x="30" y="26">via a domain name.</text>
+      <circle cx="9" cy="49" r="9" fill="#64c83c"/><text x="5" y="54" class="tiny">2</text>
+      <text x="30" y="54">DNS resolves the domain to the</text><text x="30" y="75">Ingress Controller's external IP.</text>
+      <circle cx="9" cy="105" r="9" fill="#64c83c"/><text x="5" y="110" class="tiny">3</text>
+      <text x="30" y="110">NGINX Ingress Controller receives</text><text x="30" y="131">the request and matches it with</text><text x="30" y="152">the Ingress rules.</text>
+      <circle cx="9" cy="184" r="9" fill="#64c83c"/><text x="5" y="189" class="tiny">4</text>
+      <text x="30" y="189">The request is routed to the</text><text x="30" y="210">appropriate Service in the K3s</text><text x="30" y="231">cluster.</text>
+      <circle cx="9" cy="256" r="9" fill="#64c83c"/><text x="5" y="261" class="tiny">5</text>
+      <text x="30" y="261">The Service forwards the request</text><text x="30" y="282">to the backend Pods.</text>
+    </g>
+  </g>
+
+  <g transform="translate(318 445)">
+    <rect width="500" height="300" rx="10" class="panel"/>
+    <text x="18" y="31" class="label">INGRESS RESOURCE EXAMPLE</text>
+    <rect x="14" y="52" width="280" height="222" class="greenDash"/>
+    <text x="26" y="74" class="codeGreen">apiVersion:</text><text x="116" y="74" class="code">networking.k8s.io/v1</text>
+    <text x="26" y="94" class="codeGreen">kind:</text><text x="70" y="94" class="code">Ingress</text>
+    <text x="26" y="114" class="codeGreen">metadata:</text>
+    <text x="46" y="134" class="codeBlue">name:</text><text x="92" y="134" class="code">my-app-ingress</text>
+    <text x="46" y="154" class="codeBlue">namespace:</text><text x="126" y="154" class="code">app-1</text>
+    <text x="26" y="174" class="codeGreen">spec:</text>
+    <text x="46" y="194" class="codeBlue">ingressClassName:</text><text x="176" y="194" class="code">nginx</text>
+    <text x="46" y="214" class="codeBlue">rules:</text>
+    <text x="66" y="234" class="codeBlue">host:</text><text x="112" y="234" class="code">app.example.com</text>
+    <text x="66" y="254" class="codeBlue">http:</text><text x="112" y="254" class="code">paths...</text>
+    <g transform="translate(308 73)" class="small">
+      <path class="arrow" d="M0 0h28"/><text x="40" y="5">API version for Ingress</text>
+      <path class="arrow" d="M0 45h28"/><text x="40" y="50">Name and namespace</text>
+      <path class="arrow" d="M0 90h28"/><text x="40" y="95">NGINX specific annotations</text>
+      <path class="arrow" d="M0 135h28"/><text x="40" y="140">Match host and path</text>
+      <path class="arrow" d="M0 180h28"/><text x="40" y="185">Backend Service and port</text>
+    </g>
+  </g>
+
+  <g transform="translate(832 505)">
+    <rect width="685" height="190" rx="10" class="panel"/>
+    <text x="14" y="31" class="label">DEPLOYMENT OPTIONS</text>
+    <g transform="translate(14 55)">
+      <rect width="350" height="122" rx="6" class="soft"/>
+      <text x="12" y="24" class="label" style="font-size:13px">OPTION 1: HELM (RECOMMENDED)</text>
+      <rect x="18" y="43" width="325" height="72" rx="5" class="panel"/>
+      <text x="28" y="64" class="code">helm repo add ingress-nginx \</text>
+      <text x="28" y="84" class="code">https://kubernetes.github.io/ingress-nginx</text>
+      <text x="28" y="104" class="code">helm upgrade --install ingress-nginx ...</text>
+    </g>
+    <g transform="translate(370 55)">
+      <rect width="300" height="122" rx="6" class="soft"/>
+      <text x="12" y="24" class="blue">OPTION 2: MANIFEST</text>
+      <rect x="18" y="43" width="263" height="61" rx="5" class="panel"/>
+      <text x="28" y="65" class="code">kubectl apply -f https://raw.githubusercontent.com/</text>
+      <text x="28" y="85" class="code">kubernetes/ingress-nginx/main/deploy/static/...</text>
+    </g>
+  </g>
+
+  <g transform="translate(740 725)">
+    <rect width="407" height="118" rx="10" class="panel"/>
+    <text x="18" y="30" class="label">TLS TERMINATION</text>
+    <path d="M34 75V57c0-16 32-16 32 0v18" fill="none" stroke="#d8dee5" stroke-width="4"/>
+    <rect x="25" y="73" width="50" height="42" rx="4" fill="none" stroke="#d8dee5" stroke-width="3"/>
+    <path class="arrow" d="M88 94h60"/>
+    <path d="M190 60l30 17v35l-30 17-30-17V77z" fill="url(#nginx)"/>
+    <path d="M177 108V73h12l20 22V73h12v35h-12l-20-22v22z" fill="#fff"/>
+    <path class="arrow" d="M240 94h60"/>
+    <path d="M330 68l22-13 22 13v37l-22 13-22-13z" fill="#176bd4" stroke="#75baff"/>
+    <text x="23" y="137" class="small">Using cert-manager (recommended):</text>
+    <rect x="23" y="149" width="360" height="38" rx="5" class="panel"/>
+    <text x="34" y="172" class="code">kubectl apply -f cert-manager/releases/latest.yaml</text>
+  </g>
+
+  <g transform="translate(1156 489)">
+    <rect width="363" height="116" rx="10" class="panel"/>
+    <text x="18" y="30" class="label">CHECK STATUS</text>
+    <rect x="28" y="48" width="304" height="50" rx="4" class="panel"/>
+    <text x="40" y="67" class="codeBlue"># Ingress Controller Pods</text>
+    <text x="40" y="87" class="code">kubectl get pods -n ingress-nginx</text>
+  </g>
+  <g transform="translate(1156 608)">
+    <rect width="363" height="120" rx="10" class="panel"/>
+    <text x="18" y="30" class="label">BENEFITS</text>
+    <text x="20" y="62" class="small" fill="#7ed957">✓</text><text x="38" y="62" class="small">Native Kubernetes Ingress support for K3s</text>
+    <text x="20" y="86" class="small" fill="#7ed957">✓</text><text x="38" y="86" class="small">High performance with low resource usage</text>
+    <text x="20" y="110" class="small" fill="#7ed957">✓</text><text x="38" y="110" class="small">Rich configuration with annotations</text>
+  </g>
+
+  <g transform="translate(18 779)">
+    <rect width="1500" height="54" rx="10" class="panel"/>
+    <text x="18" y="34" class="small" fill="#7ed957">💡 TIP:</text>
+    <text x="75" y="34" class="small">Expose the Ingress Controller using LoadBalancer (on supported environments) or NodePort.</text>
+    <text x="585" y="34" class="small" fill="#7ed957">🛡</text>
+    <text x="620" y="34" class="small">Keep your NGINX Ingress Controller updated for security and performance.</text>
+    <text x="1130" y="34" class="small">🚀 Happy routing with NGINX on K3s! 🚀</text>
+  </g>
+</svg>

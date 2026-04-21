@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 864" role="img" aria-labelledby="title desc">
+  <title id="title">Observability Stack on Raspberry Pi with K3s</title>
+  <desc id="desc">Diagram showing Raspberry Pi hardware running a K3s cluster with Prometheus, Loki, Tempo and Grafana for metrics, logs, traces and dashboards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#03101a"/>
+      <stop offset="1" stop-color="#00070d"/>
+    </linearGradient>
+    <linearGradient id="greenLine" x1="0" x2="1">
+      <stop offset="0" stop-color="#68d348"/>
+      <stop offset="1" stop-color="#39b4ff"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff5b13"/>
+      <stop offset="1" stop-color="#ff9e05"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#39b4ff"/>
+    </marker>
+    <style>
+      .bg{fill:url(#bg)}
+      .panel{fill:#03131d;stroke:#294353;stroke-width:2}
+      .dash{fill:none;stroke:#19aef5;stroke-width:1.4;stroke-dasharray:5 4}
+      .title{font:800 54px Arial,sans-serif;letter-spacing:8px;fill:#fff}
+      .sub{font:800 32px Arial,sans-serif;letter-spacing:1px;fill:#80d66f}
+      .small{font:400 18px Arial,sans-serif;fill:#d8dee5}
+      .label{font:800 18px Arial,sans-serif;letter-spacing:1.8px;fill:#7ed957}
+      .blue{fill:#58a6ff}
+      .white{fill:#fff}
+      .muted{fill:#d8dee5}
+      .card-title{font:800 17px Arial,sans-serif;fill:#7ed957;letter-spacing:1px}
+      .card-name{font:800 19px Arial,sans-serif;fill:#fff}
+      .card-copy{font:400 15px Arial,sans-serif;fill:#e8edf2}
+      .tiny{font:400 13px Arial,sans-serif;fill:#e8edf2}
+      .arrow{stroke:#39b4ff;stroke-width:2;fill:none;marker-end:url(#arrow)}
+      .dim{stroke:#345061}
+    </style>
+  </defs>
+
+  <rect class="bg" width="1536" height="864"/>
+
+  <g transform="translate(34 18)">
+    <g filter="url(#softGlow)">
+      <ellipse cx="45" cy="61" rx="17" ry="23" fill="#d1143c"/>
+      <ellipse cx="22" cy="54" rx="13" ry="18" fill="#d1143c"/>
+      <ellipse cx="69" cy="54" rx="13" ry="18" fill="#d1143c"/>
+      <ellipse cx="45" cy="91" rx="18" ry="21" fill="#d1143c"/>
+      <ellipse cx="18" cy="84" rx="12" ry="16" fill="#d1143c"/>
+      <ellipse cx="74" cy="84" rx="12" ry="16" fill="#d1143c"/>
+      <path d="M35 17C20 7 8 9 5 10c9 18 24 20 37 18z" fill="#66c84e"/>
+      <path d="M54 28C67 8 85 7 92 9c-8 20-24 24-41 28z" fill="#66c84e"/>
+      <path d="M46 34c-3-11-1-21 7-29" stroke="#66c84e" stroke-width="5" fill="none"/>
+    </g>
+    <text x="116" y="52" class="title">OBSERVABILITY STACK</text>
+    <text x="116" y="102" class="sub">on Raspberry Pi with K3s</text>
+    <text x="116" y="137" class="small">Monitor your K3s clusters simply, efficiently and completely</text>
+  </g>
+
+  <g transform="translate(26 172)">
+    <rect width="250" height="207" rx="10" class="panel"/>
+    <text x="66" y="36" class="label">HARDWARE</text>
+    <g transform="translate(28 66) rotate(-12)">
+      <rect x="8" y="36" width="178" height="76" rx="8" fill="#0f6f2f" stroke="#57c65a"/>
+      <rect x="42" y="55" width="48" height="24" fill="#a8b5a8"/>
+      <rect x="99" y="50" width="42" height="30" fill="#9fb1bd"/>
+      <rect x="150" y="44" width="34" height="33" fill="#b7b7ad"/>
+      <circle cx="27" cy="95" r="8" fill="#e3b227"/>
+      <circle cx="165" cy="96" r="8" fill="#e3b227"/>
+      <path d="M13 43h160M24 112l160-2" stroke="#8fff55" stroke-width="2" opacity=".45"/>
+    </g>
+    <text x="68" y="148" class="card-name">Raspberry Pi 4/5</text>
+    <text x="107" y="172" class="small">(or higher)</text>
+    <text x="106" y="205" class="small">4GB+ RAM</text>
+    <text x="106" y="248" class="small">SD Card / SSD</text>
+    <rect x="40" y="194" width="24" height="24" fill="none" stroke="#d8dee5" stroke-width="2"/>
+    <rect x="43" y="197" width="18" height="18" fill="none" stroke="#d8dee5" stroke-width="2"/>
+    <rect x="40" y="238" width="24" height="31" rx="3" fill="none" stroke="#d8dee5" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(302 172)">
+    <rect width="252" height="207" rx="10" class="panel"/>
+    <text x="56" y="36" class="label">K3s CLUSTER</text>
+    <rect x="66" y="64" width="57" height="48" rx="6" fill="#f7b718"/>
+    <path d="M94 73v20m0 0-16 11m16-11 16 11" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    <text x="135" y="99" class="card-name" style="font-size:32px">K3s</text>
+    <rect x="16" y="135" width="220" height="76" rx="8" class="dash" opacity=".45"/>
+    <g fill="#1168be" stroke="#75baff" stroke-width="2">
+      <path d="M58 158l20-10 20 10v23l-20 11-20-11z"/>
+      <path d="M128 158l20-10 20 10v23l-20 11-20-11z"/>
+      <path d="M198 158l20-10 20 10v23l-20 11-20-11z"/>
+    </g>
+    <text x="49" y="230" class="small">kubelet</text>
+    <text x="133" y="230" class="small">containerd</text>
+    <text x="78" y="275" class="card-name">Kubernetes API</text>
+  </g>
+
+  <path class="arrow" d="M276 351h28"/>
+  <path class="arrow" d="M552 351h30"/>
+
+  <g transform="translate(578 166)">
+    <rect width="930" height="219" rx="11" class="panel"/>
+    <text x="245" y="34" class="blue" style="font:800 24px Arial,sans-serif;letter-spacing:1.8px">OBSERVABILITY STACK</text>
+    <rect x="22" y="55" width="648" height="166" rx="10" class="dash"/>
+    <g transform="translate(45 70)">
+      <rect width="190" height="130" rx="8" class="panel"/>
+      <text x="54" y="34" class="card-title">METRICS</text>
+      <circle cx="94" cy="67" r="37" fill="#e94a19"/>
+      <path d="M75 82h38c-11-9-10-23-8-37-8 15-8 22-16 33 1-15-3-24-8-35 2 18-8 25-6 39z" fill="#fff"/>
+      <text x="50" y="116" class="card-name">Prometheus</text>
+      <text x="44" y="144" class="card-copy">Collects and stores</text>
+      <text x="69" y="166" class="card-copy">metrics</text>
+    </g>
+    <g transform="translate(250 70)">
+      <rect width="200" height="130" rx="8" class="panel"/>
+      <text x="75" y="34" class="card-title">LOGS</text>
+      <path d="M77 54l11 62m12-69l15 69m13-38l12 38m-72-8l91-16" stroke="url(#orange)" stroke-width="7"/>
+      <text x="80" y="116" class="card-name">Loki</text>
+      <text x="49" y="144" class="card-copy">Collects and indexes</text>
+      <text x="82" y="166" class="card-copy">logs</text>
+    </g>
+    <g transform="translate(465 70)">
+      <rect width="196" height="130" rx="8" class="panel"/>
+      <text x="61" y="34" class="card-title">TRACES</text>
+      <path d="M62 60h68l6 20H72zm26 29h50l9 31H96z" fill="url(#orange)"/>
+      <circle cx="76" cy="91" r="2" fill="#ff9e05"/><circle cx="82" cy="102" r="2" fill="#ff9e05"/>
+      <text x="74" y="116" class="card-name">Tempo</text>
+      <text x="38" y="144" class="card-copy">Collects and stores</text>
+      <text x="42" y="166" class="card-copy">distributed traces</text>
+    </g>
+    <rect x="45" y="337" width="600" height="77" rx="8" class="panel" transform="translate(0 -85)"/>
+    <text x="290" y="285" class="card-title">STORAGE</text>
+    <text x="153" y="312" class="card-copy">Persistent data on local disk (reliable and efficient)</text>
+    <g transform="translate(706 70)">
+      <rect width="204" height="130" rx="8" class="panel"/>
+      <text x="38" y="34" class="card-title">DASHBOARDS</text>
+      <path d="M102 55c30 0 49 23 41 48l16 14-22 9c-10 12-25 18-41 16-31-3-51-28-42-54l-15-17 24-6c10-7 23-10 39-10z" fill="url(#orange)"/>
+      <path d="M112 88c-13-15-42 6-25 25 13 16 43-5 26-24" fill="none" stroke="#03131d" stroke-width="8"/>
+      <text x="70" y="116" class="card-name">Grafana</text>
+      <text x="26" y="144" class="card-copy">Unified visualization</text>
+      <text x="48" y="166" class="card-copy">and dashboards</text>
+    </g>
+    <path class="arrow" d="M670 136h42"/>
+  </g>
+
+  <g transform="translate(26 424)">
+    <rect width="1128" height="177" rx="10" class="panel"/>
+    <text x="30" y="35" class="blue" style="font:800 19px Arial,sans-serif;letter-spacing:1px">DATA</text>
+    <text x="30" y="61" class="blue" style="font:800 19px Arial,sans-serif;letter-spacing:1px">SOURCES</text>
+    <g transform="translate(145 16)">
+      <rect width="405" height="145" rx="8" class="panel"/>
+      <text x="155" y="35" class="label">METRICS</text>
+      <g fill="#176bd4" stroke="#8fc5ff" stroke-width="2">
+        <path d="M55 70l25-14 25 14v29l-25 15-25-15z"/>
+        <path d="M190 70l25-14 25 14v29l-25 15-25-15z"/>
+        <path d="M324 70l25-14 25 14v29l-25 15-25-15z"/>
+      </g>
+      <text x="16" y="132" class="tiny">kube-state-metrics</text>
+      <text x="165" y="132" class="tiny">metrics-server</text>
+      <text x="298" y="132" class="tiny">node-exporter</text>
+    </g>
+    <g transform="translate(565 16)">
+      <rect width="148" height="145" rx="8" class="panel"/>
+      <text x="48" y="35" class="label">LOGS</text>
+      <circle cx="74" cy="82" r="24" fill="#2a7de1"/>
+      <text x="37" y="132" class="tiny">promtail</text>
+    </g>
+    <g transform="translate(727 16)">
+      <rect width="169" height="145" rx="8" class="panel"/>
+      <text x="51" y="35" class="label">TRACES</text>
+      <path d="M68 70l42 42m-47-15l28-28m0 0l19-19" stroke="#d8dee5" stroke-width="10"/>
+      <text x="40" y="132" class="tiny">otel-collector</text>
+    </g>
+    <g transform="translate(914 16)">
+      <rect width="222" height="145" rx="8" class="panel"/>
+      <text x="57" y="35" class="label">APPLICATIONS</text>
+      <path d="M36 70l22-12 22 12v28l-22 13-22-13z" fill="none" stroke="#82929f" stroke-width="2"/>
+      <text x="82" y="82" class="tiny">Instrumented apps</text>
+      <text x="82" y="104" class="tiny">(OpenTelemetry)</text>
+    </g>
+  </g>
+
+  <g transform="translate(1180 400)">
+    <rect width="328" height="214" rx="10" class="panel"/>
+    <text x="24" y="30" class="blue" style="font:800 20px Arial,sans-serif;letter-spacing:1px">BENEFITS</text>
+    <g class="small" transform="translate(24 62)">
+      <circle cx="9" cy="0" r="8" fill="#7ed957"/><path d="M5 -1l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="25" y="5">Lightweight and optimized for Raspberry Pi</text>
+      <circle cx="9" cy="33" r="8" fill="#7ed957"/><path d="M5 32l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="25" y="38">100% Open Source</text>
+      <circle cx="9" cy="66" r="8" fill="#7ed957"/><path d="M5 65l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="25" y="71">Full observability (metrics, logs and traces)</text>
+      <circle cx="9" cy="99" r="8" fill="#7ed957"/><path d="M5 98l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="25" y="104">Easy to deploy and run on K3s</text>
+      <circle cx="9" cy="132" r="8" fill="#7ed957"/><path d="M5 131l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="25" y="137">Powerful dashboards with Grafana</text>
+    </g>
+  </g>
+
+  <g transform="translate(26 626)">
+    <rect width="958" height="153" rx="10" class="panel"/>
+    <text x="20" y="32" class="blue" style="font:800 20px Arial,sans-serif;letter-spacing:1px">HOW IT WORKS</text>
+    <circle cx="54" cy="78" r="26" fill="none" stroke="#d8dee5" stroke-width="2" stroke-dasharray="3 6"/>
+    <text x="112" y="73" class="small">Applications and components</text>
+    <text x="112" y="98" class="small">generate metrics, logs and traces</text>
+    <path class="arrow" d="M305 83h55"/>
+    <rect x="397" y="59" width="50" height="48" rx="4" fill="none" stroke="#d8dee5" stroke-width="2"/>
+    <path class="arrow" d="M512 83h35"/>
+    <ellipse cx="636" cy="69" rx="26" ry="13" fill="none" stroke="#d8dee5" stroke-width="2"/>
+    <path d="M610 69v45c0 8 52 8 52 0V69" fill="none" stroke="#d8dee5" stroke-width="2"/>
+    <path class="arrow" d="M742 83h28"/>
+    <path d="M856 50c30 0 49 23 41 48l16 14-22 9c-10 12-25 18-41 16-31-3-51-28-42-54l-15-17 24-6c10-7 23-10 39-10z" fill="url(#orange)"/>
+    <text x="373" y="124" class="tiny">Agents collect</text>
+    <text x="372" y="144" class="tiny">and send data</text>
+    <text x="559" y="124" class="tiny">Prometheus, Loki and Tempo</text>
+    <text x="588" y="144" class="tiny">store the data</text>
+    <text x="780" y="124" class="tiny">Grafana visualizes everything</text>
+    <text x="816" y="144" class="tiny">in amazing dashboards</text>
+  </g>
+
+  <g transform="translate(1006 626)">
+    <rect width="502" height="153" rx="10" class="panel"/>
+    <text x="24" y="38" fill="#7ed957" style="font:800 30px monospace">&gt;_</text>
+    <text x="32" y="84" class="small">Everything running on your</text>
+    <text x="32" y="110" class="small">Raspberry Pi with K3s! 🚀</text>
+    <g transform="translate(285 45) rotate(-12)" stroke="#7ed957" fill="none">
+      <rect x="8" y="28" width="170" height="75" rx="7" stroke-width="2"/>
+      <path d="M22 44h132M36 100h130M55 50h42v25H55zm62 0h37v25h-37z" stroke-width="2"/>
+      <rect x="125" y="0" width="62" height="55" stroke-width="2"/>
+      <path d="M125 0l-22 14v55l22-14M187 0l-22 14v55l22-14" stroke-width="2"/>
+      <circle cx="30" cy="88" r="6" fill="#7ed957"/>
+      <circle cx="158" cy="88" r="6" fill="#7ed957"/>
+    </g>
+  </g>
+
+  <path class="arrow" d="M262 407v34"/>
+  <path class="arrow" d="M362 407v34"/>
+  <path class="arrow" d="M464 380v60"/>
+  <path class="arrow" d="M708 588v-60"/>
+  <path class="arrow" d="M829 588v-60"/>
+  <path class="arrow" d="M1014 588v-60"/>
+</svg>

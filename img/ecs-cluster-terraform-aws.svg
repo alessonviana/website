@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 864" role="img" aria-labelledby="title desc">
+  <title id="title">ECS Cluster with Terraform on AWS</title>
+  <desc id="desc">Architecture diagram for an Amazon ECS cluster provisioned with Terraform, including VPC, public and private subnets, ALB, ECS services, Fargate, AWS storage, monitoring, IAM and KMS.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#03101a"/>
+      <stop offset="1" stop-color="#00070d"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffb13b"/>
+      <stop offset="1" stop-color="#f28a00"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#5d36c9"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#a4afbd"/>
+    </marker>
+    <style>
+      .bg{fill:url(#bg)}
+      .panel{fill:#03131d;stroke:#294353;stroke-width:2}
+      .soft{fill:#061923;stroke:#294353;stroke-width:2}
+      .greenPanel{fill:#061923;stroke:#75cf26;stroke-width:1.5}
+      .blueDash{fill:none;stroke:#2ca9ff;stroke-width:1.3;stroke-dasharray:5 4}
+      .orangeDash{fill:none;stroke:#f59e0b;stroke-width:1.4;stroke-dasharray:5 4}
+      .purpleDash{fill:none;stroke:#b15cff;stroke-width:1.4;stroke-dasharray:5 4}
+      .title{font:800 54px Arial,sans-serif;letter-spacing:7px;fill:#fff}
+      .sub{font:800 32px Arial,sans-serif;letter-spacing:2px;fill:#9d6cff}
+      .tag{font:400 23px Arial,sans-serif;letter-spacing:1px;fill:#d8dee5}
+      .label{font:800 19px Arial,sans-serif;letter-spacing:1.4px;fill:#b77cff}
+      .blueLabel{font:800 15px Arial,sans-serif;letter-spacing:1.2px;fill:#2ca9ff}
+      .green{font:800 17px Arial,sans-serif;letter-spacing:1px;fill:#7ed957}
+      .white{fill:#fff}
+      .muted{fill:#d8dee5}
+      .small{font:400 15px Arial,sans-serif;fill:#e8edf2}
+      .tiny{font:400 13px Arial,sans-serif;fill:#e8edf2}
+      .name{font:800 17px Arial,sans-serif;fill:#fff}
+      .arrow{stroke:#a4afbd;stroke-width:2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect class="bg" width="1536" height="864"/>
+
+  <g transform="translate(24 20)">
+    <path d="M0 31l44-24 44 24v50l-44 24L0 81z" fill="url(#orange)"/>
+    <path d="M44 7v50L0 31M44 57l44-26M44 57v48" fill="none" stroke="#b15b00" stroke-width="1.5"/>
+    <path d="M122 12l34 18v42l-34-18zM156 30l34-18v42l-34 18zM122 66l34 18 34-18v30l-34 18-34-18z" fill="#8062ff"/>
+  </g>
+  <text x="227" y="62" class="title">ECS CLUSTER</text>
+  <text x="227" y="109" class="sub">WITH TERRAFORM ON AWS</text>
+  <text x="143" y="146" class="tag">Infrastructure as Code. Scalable. Secure. Reliable.</text>
+
+  <g transform="translate(724 22)">
+    <rect width="780" height="158" rx="16" class="panel"/>
+    <g transform="translate(25 20)">
+      <path d="M30 0l33 18v38L30 74-3 56V18z" fill="#8062ff"/>
+      <path d="M30 0v37M4 20l26 17 26-17M30 37v37" stroke="#03131d" stroke-width="3" fill="none"/>
+      <text x="-12" y="60" class="name">INFRASTRUCTURE</text>
+      <text x="3" y="80" class="name">AS CODE</text>
+      <text x="-8" y="105" class="tiny">Manage and version all</text>
+      <text x="-6" y="125" class="tiny">infrastructure with</text>
+      <text x="18" y="145" class="tiny">Terraform</text>
+    </g>
+    <path d="M142 20v124" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(185 18)">
+      <path d="M32 0l34 18v40L32 76-2 58V18z" fill="none" stroke="#f59e0b" stroke-width="4"/>
+      <path d="M32 0v76M-2 18l34 20 34-20M12 28l20 12 20-12" stroke="#f59e0b" stroke-width="3"/>
+      <text x="-4" y="62" class="name">SCALABLE</text>
+      <text x="-34" y="86" class="tiny">Auto Scaling, Load Balancing</text>
+      <text x="-28" y="106" class="tiny">and AWS managed</text>
+      <text x="0" y="126" class="tiny">services</text>
+    </g>
+    <path d="M296 20v124" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(345 20)">
+      <path d="M25 0c20 11 36 11 56 0v30c0 28-19 46-28 51-9-5-28-23-28-51z" fill="none" stroke="#75cf26" stroke-width="4"/>
+      <path d="M42 37l10 10 21-24" stroke="#75cf26" stroke-width="4" fill="none"/>
+      <text x="23" y="61" class="name">SECURE</text>
+      <text x="-24" y="86" class="tiny">Least privilege access,</text>
+      <text x="-25" y="106" class="tiny">security groups and</text>
+      <text x="-17" y="126" class="tiny">encryption everywhere</text>
+    </g>
+    <path d="M450 20v124" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(503 18)">
+      <circle cx="22" cy="20" r="22" fill="none" stroke="#6c82d9" stroke-width="3"/>
+      <text x="14" y="29" style="font:800 27px Arial;fill:#6c82d9">$</text>
+      <text x="-28" y="62" class="name">COST EFFECTIVE</text>
+      <text x="-30" y="86" class="tiny">Pay for what you use</text>
+      <text x="-31" y="106" class="tiny">with cloud native</text>
+      <text x="-11" y="126" class="tiny">AWS services</text>
+    </g>
+    <path d="M600 20v124" stroke="#294353" stroke-width="2"/>
+    <g transform="translate(655 18)">
+      <path d="M1 43c4-22 19-31 35-27C43 1 65 8 68 27c18-1 35 12 35 30H1z" fill="none" stroke="#ff8a19" stroke-width="4"/>
+      <text x="19" y="62" class="name">RELIABLE</text>
+      <text x="-21" y="86" class="tiny">High availability across</text>
+      <text x="-19" y="106" class="tiny">multiple AZs by</text>
+      <text x="28" y="126" class="tiny">default</text>
+    </g>
+  </g>
+
+  <g transform="translate(13 160)">
+    <rect width="319" height="253" rx="10" class="panel"/>
+    <text x="18" y="30" class="label">ARCHITECTURE OVERVIEW</text>
+    <text x="18" y="55" class="small">Highly available containerized applications</text>
+    <text x="18" y="77" class="small">running on Amazon ECS using AWS</text>
+    <text x="18" y="99" class="small">managed services. Fully provisioned</text>
+    <text x="18" y="121" class="small">and managed with Terraform.</text>
+    <g transform="translate(34 144)">
+      <path d="M0 10l25-14 25 14v29L25 54 0 39z" fill="none" stroke="#f59e0b" stroke-width="3"/>
+      <path d="M25-4v58M0 10l25 15 25-15" stroke="#f59e0b" stroke-width="2"/>
+      <text x="64" y="17" class="name">Amazon ECS</text>
+      <text x="64" y="40" class="small">Managed container orchestration service</text>
+      <path d="M0 68l25-14 25 14v29l-25 15L0 97z" fill="none" stroke="#f59e0b" stroke-width="3"/>
+      <text x="64" y="75" class="name">Fargate</text>
+      <text x="64" y="98" class="small">Serverless compute for containers</text>
+      <circle cx="25" cy="146" r="22" fill="url(#purple)"/>
+      <path d="M18 146h24m-12-12v24" stroke="#fff" stroke-width="2"/>
+      <text x="64" y="139" class="name">Application Load Balancer</text>
+      <text x="64" y="162" class="small">Distributes traffic to ECS services</text>
+    </g>
+  </g>
+
+  <g transform="translate(13 423)">
+    <rect width="319" height="158" rx="10" class="panel"/>
+    <text x="18" y="31" class="label">TERRAFORM WORKFLOW</text>
+    <g transform="translate(30 55)" class="small">
+      <rect x="-8" y="-14" width="24" height="24" fill="none" stroke="#b77cff" stroke-width="2"/><text x="34" y="5">Write</text><text x="112" y="5">Define infrastructure in .tf files</text>
+      <rect x="-8" y="28" width="24" height="24" fill="none" stroke="#5d8cff" stroke-width="2"/><text x="34" y="47">Plan</text><text x="112" y="47">terraform plan</text>
+      <circle cx="4" cy="88" r="13" fill="none" stroke="#5d8cff" stroke-width="2"/><path d="M-2 88l5 5 10-12" stroke="#5d8cff" stroke-width="2" fill="none"/><text x="34" y="93">Apply</text><text x="112" y="93">terraform apply</text>
+    </g>
+  </g>
+
+  <g transform="translate(351 175)">
+    <rect width="804" height="394" rx="10" class="panel"/>
+    <text x="18" y="34" class="name">aws</text>
+    <text x="65" y="34" class="name">AWS CLOUD</text>
+    <rect x="18" y="65" width="780" height="198" rx="10" class="greenPanel"/>
+    <rect x="42" y="127" width="728" height="60" rx="7" class="greenPanel"/>
+    <text x="63" y="150" class="green">Public Subnet</text>
+    <text x="625" y="150" class="green">Public Subnet</text>
+    <rect x="42" y="205" width="300" height="77" rx="7" class="blueDash"/>
+    <rect x="464" y="205" width="300" height="77" rx="7" class="blueDash"/>
+    <text x="63" y="232" class="blueLabel">Private Subnet</text>
+    <text x="644" y="232" class="blueLabel">Private Subnet</text>
+    <text x="65" y="86" class="green">VPC</text>
+    <rect x="108" y="253" width="240" height="82" rx="8" class="orangeDash"/>
+    <rect x="492" y="253" width="240" height="82" rx="8" class="orangeDash"/>
+    <text x="151" y="274" class="name">ECS Service</text>
+    <text x="547" y="274" class="name">ECS Service</text>
+    <g fill="none" stroke="#f59e0b" stroke-width="3">
+      <rect x="138" y="285" width="43" height="28"/><path d="M146 289v20M155 289v20M164 289v20M173 289v20"/>
+      <rect x="212" y="285" width="43" height="28"/><path d="M220 289v20M229 289v20M238 289v20M247 289v20"/>
+      <rect x="287" y="285" width="43" height="28"/><path d="M295 289v20M304 289v20M313 289v20M322 289v20"/>
+      <rect x="522" y="285" width="43" height="28"/><path d="M530 289v20M539 289v20M548 289v20M557 289v20"/>
+      <rect x="596" y="285" width="43" height="28"/><path d="M604 289v20M613 289v20M622 289v20M631 289v20"/>
+      <rect x="670" y="285" width="43" height="28"/><path d="M678 289v20M687 289v20M696 289v20M705 289v20"/>
+    </g>
+    <g transform="translate(354 134)" filter="url(#glow)">
+      <path d="M0 22l42-24 42 24v49L42 95 0 71z" fill="none" stroke="#f59e0b" stroke-width="5"/>
+      <path d="M42-2v97M0 22l42 24 42-24M16 31l26 15 26-15" stroke="#f59e0b" stroke-width="3"/>
+      <text x="-49" y="113" class="name">Amazon ECS Cluster</text>
+    </g>
+    <circle cx="274" cy="99" r="23" fill="url(#purple)"/>
+    <path d="M264 99h20m-10-10v20" stroke="#fff" stroke-width="2"/>
+    <text x="307" y="95" class="name">Application Load Balancer</text>
+    <text x="307" y="118" class="small">HTTPS : 443</text>
+    <g transform="translate(60 300)" fill="#f59e0b">
+      <rect x="0" y="0" width="36" height="36" rx="4"/><rect x="430" y="0" width="36" height="36" rx="4"/>
+    </g>
+    <text x="160" y="328" class="name">AWS Fargate</text>
+    <text x="553" y="328" class="name">AWS Fargate</text>
+    <path class="orangeDash" d="M364 168H211v84M421 168h153v84"/>
+    <path class="arrow" d="M274 122v40"/>
+    <path class="arrow" d="M232 263v61"/>
+    <path class="arrow" d="M616 263v61"/>
+    <g transform="translate(32 289)">
+      <g transform="translate(0 175)">
+        <rect width="58" height="58" fill="#5a9f31"/><path d="M13 14h32l-5 33H18z" fill="none" stroke="#fff" stroke-width="2"/>
+        <text x="-15" y="78" class="tiny">Amazon S3</text><text x="-22" y="98" class="tiny">Terraform State</text>
+      </g>
+      <g transform="translate(143 175)">
+        <rect width="58" height="58" fill="#2f5bd5"/><path d="M17 12c0 8 25 8 25 0v34c0 8-25 8-25 0z" fill="none" stroke="#fff" stroke-width="2"/>
+        <text x="-28" y="78" class="tiny">Amazon DynamoDB</text><text x="-8" y="98" class="tiny">State Locking</text>
+      </g>
+      <g transform="translate(281 175)">
+        <rect width="58" height="58" fill="#8b3fd5"/><path d="M14 35c2-14 12-20 24-17 7-14 28-2 25 15 13 0 22 10 22 22H14z" transform="scale(.65)" fill="none" stroke="#fff" stroke-width="3"/>
+        <text x="-33" y="78" class="tiny">Amazon CloudWatch</text><text x="-12" y="98" class="tiny">Logs &amp; Metrics</text>
+      </g>
+      <g transform="translate(420 175)">
+        <rect width="58" height="58" fill="#cf3f82"/><path d="M14 35c2-14 12-20 24-17 7-14 28-2 25 15 13 0 22 10 22 22H14z" transform="scale(.65)" fill="none" stroke="#fff" stroke-width="3"/>
+        <text x="-12" y="78" class="tiny">AWS CloudTrail</text><text x="4" y="98" class="tiny">Audit Logs</text>
+      </g>
+      <g transform="translate(557 175)">
+        <rect width="58" height="58" fill="#d84b4b"/><path d="M14 14h30v30H14zM29 7v14M29 37v14M7 29h14M37 29h14" fill="none" stroke="#fff" stroke-width="2"/>
+        <text x="-33" y="78" class="tiny">AWS Secrets Manager</text><text x="-7" y="98" class="tiny">Secrets &amp; Configs</text>
+      </g>
+      <g transform="translate(688 175)">
+        <rect width="58" height="58" fill="#6c9f32"/><path d="M27 13a11 11 0 1 0 0 22v17M27 35h19v17" fill="none" stroke="#fff" stroke-width="3"/>
+        <text x="-5" y="78" class="tiny">AWS KMS</text><text x="-12" y="98" class="tiny">Encryption</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(1170 195)">
+    <rect width="332" height="255" rx="10" class="panel"/>
+    <text x="17" y="30" class="label">ECS CLUSTER COMPONENTS</text>
+    <g transform="translate(28 55)" class="small">
+      <path d="M0 7l25-14 25 14v30L25 51 0 37z" fill="none" stroke="#f59e0b" stroke-width="3"/>
+      <text x="65" y="10" class="name">Cluster</text><text x="65" y="31">Logical grouping of ECS resources</text>
+      <path d="M0 63l25-14 25 14v30l-25 14L0 93z" fill="none" stroke="#f59e0b" stroke-width="3"/>
+      <text x="65" y="68" class="name">Service</text><text x="65" y="90">Long-running task definition and</text><text x="65" y="110">scheduling</text>
+      <rect x="2" y="128" width="28" height="28" fill="none" stroke="#f59e0b" stroke-width="3"/>
+      <text x="65" y="143" class="name">Task Definition</text><text x="65" y="165">Blueprint for your application container(s)</text>
+      <rect x="2" y="188" width="28" height="28" fill="none" stroke="#f59e0b" stroke-width="3"/>
+      <text x="65" y="203" class="name">Task</text><text x="65" y="225">Running instance of a task definition</text>
+    </g>
+  </g>
+
+  <g transform="translate(1170 464)">
+    <rect width="332" height="116" rx="10" class="panel"/>
+    <text x="17" y="29" class="label">BENEFITS</text>
+    <g transform="translate(24 54)" class="small">
+      <circle cx="8" cy="0" r="8" fill="#7ed957"/><path d="M4-1l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="24" y="5">No servers to manage</text>
+      <circle cx="8" cy="24" r="8" fill="#7ed957"/><path d="M4 23l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="24" y="29">Automatic scaling and high availability</text>
+      <circle cx="8" cy="48" r="8" fill="#7ed957"/><path d="M4 47l3 4 7-8" stroke="#03131d" stroke-width="2" fill="none"/>
+      <text x="24" y="53">Integrated with AWS services</text>
+    </g>
+  </g>
+
+  <g transform="translate(12 592)">
+    <rect width="790" height="100" rx="10" class="panel"/>
+    <text x="18" y="29" class="label">TERRAFORM PROJECT STRUCTURE (EXAMPLE)</text>
+    <text x="18" y="57" class="tiny">ecs-cluster/</text>
+    <text x="48" y="77" class="tiny">main.tf          # Main resources</text>
+    <text x="48" y="97" class="tiny">variables.tf     # Input variables</text>
+    <text x="48" y="117" class="tiny">outputs.tf       # Output values</text>
+    <text x="250" y="77" class="tiny">providers.tf     # Provider configuration</text>
+    <text x="250" y="97" class="tiny">backend.tf       # Remote state config</text>
+    <text x="250" y="117" class="tiny">modules/         # Reusable modules</text>
+    <path d="M416 12v75" stroke="#294353" stroke-width="2"/>
+    <text x="440" y="29" class="label">COMMON TERRAFORM COMMANDS</text>
+    <text x="440" y="58" class="tiny">terraform init</text>
+    <text x="440" y="78" class="tiny">terraform plan</text>
+    <text x="440" y="98" class="tiny">terraform apply</text>
+    <text x="608" y="58" class="tiny">Initialize providers and backend</text>
+    <text x="608" y="78" class="tiny">Show execution plan</text>
+    <text x="608" y="98" class="tiny">Apply changes</text>
+  </g>
+
+  <g transform="translate(813 592)">
+    <rect width="689" height="100" rx="10" class="panel"/>
+    <text x="18" y="29" class="label">APPLICATION FLOW</text>
+    <rect x="20" y="43" width="650" height="47" rx="8" class="purpleDash"/>
+    <circle cx="68" cy="66" r="12" fill="#7ea6ef"/><path class="arrow" d="M102 66h44"/>
+    <rect x="165" y="51" width="48" height="34" rx="4" fill="#8b5cf6"/><text x="153" y="107" class="tiny">Route 53</text>
+    <path class="arrow" d="M232 66h44"/>
+    <circle cx="300" cy="66" r="20" fill="#8b5cf6"/><text x="289" y="73" style="font:800 23px Arial;fill:#fff">↔</text><text x="280" y="107" class="tiny">ALB</text>
+    <path class="arrow" d="M329 66h44"/>
+    <path d="M400 46l34-19 34 19v39l-34 20-34-20z" fill="none" stroke="#f59e0b" stroke-width="4"/><text x="391" y="107" class="tiny">ECS Service</text>
+    <path class="arrow" d="M480 66h44"/>
+    <rect x="550" y="52" width="40" height="28" fill="none" stroke="#b77cff" stroke-width="3"/>
+    <text x="540" y="107" class="tiny">Your Application</text>
+  </g>
+</svg>

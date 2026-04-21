@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 864" role="img" aria-labelledby="title desc">
+  <title id="title">Installing and Configuring Nginx Proxy Manager</title>
+  <desc id="desc">Guide-style diagram for installing Nginx Proxy Manager with Docker Compose, configuring proxy hosts, SSL certificates and HTTPS access.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#03101a"/>
+      <stop offset="1" stop-color="#00070d"/>
+    </linearGradient>
+    <linearGradient id="npm" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffc52f"/>
+      <stop offset=".45" stop-color="#ff3d5a"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1">
+      <stop offset="0" stop-color="#7ed957"/>
+      <stop offset="1" stop-color="#39c26b"/>
+    </linearGradient>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#46c83f"/>
+    </marker>
+    <style>
+      .bg{fill:url(#bg)}
+      .panel{fill:#03131d;stroke:#294353;stroke-width:2}
+      .dash{fill:none;stroke:#2ca9ff;stroke-width:1.3;stroke-dasharray:5 4}
+      .title{font:800 43px Arial,sans-serif;letter-spacing:7px;fill:#fff}
+      .sub{font:800 47px Arial,sans-serif;letter-spacing:1px;fill:#44c744}
+      .tag{font:400 21px Arial,sans-serif;fill:#d8dee5}
+      .label{font:800 18px Arial,sans-serif;letter-spacing:1.8px;fill:#7ed957}
+      .purple{font:800 17px Arial,sans-serif;letter-spacing:1px;fill:#c477ff}
+      .blue{font:800 17px Arial,sans-serif;letter-spacing:1px;fill:#58a6ff}
+      .yellow{font:800 17px Arial,sans-serif;letter-spacing:1px;fill:#fbc02d}
+      .white{fill:#fff}
+      .muted{fill:#d8dee5}
+      .small{font:400 15px Arial,sans-serif;fill:#e8edf2}
+      .tiny{font:400 13px Arial,sans-serif;fill:#e8edf2}
+      .code{font:400 15px "SFMono-Regular",Consolas,monospace;fill:#e8edf2}
+      .codeGreen{font:400 15px "SFMono-Regular",Consolas,monospace;fill:#7ed957}
+      .codePink{font:400 15px "SFMono-Regular",Consolas,monospace;fill:#ff5aa5}
+      .step{font:800 16px Arial,sans-serif;fill:#7ed957}
+      .arrow{stroke:#46c83f;stroke-width:1.8;fill:none;marker-end:url(#arrowGreen)}
+    </style>
+  </defs>
+
+  <rect class="bg" width="1536" height="864"/>
+
+  <g transform="translate(30 23)">
+    <path d="M43 0l43 25v50l-43 25L0 75V25z" fill="url(#npm)"/>
+    <path d="M43 18l27 16v32L43 82 16 66V34z" fill="#03101d"/>
+    <path d="M43 34l14 8v16l-14 8-14-8V42z" fill="#ff3d5a"/>
+    <circle cx="43" cy="18" r="4" fill="#03101d"/>
+    <circle cx="16" cy="34" r="4" fill="#03101d"/>
+    <circle cx="70" cy="34" r="4" fill="#03101d"/>
+    <circle cx="43" cy="82" r="4" fill="#03101d"/>
+  </g>
+  <text x="148" y="58" class="title">INSTALLING AND CONFIGURING</text>
+  <text x="148" y="110" class="sub">NGINX PROXY MANAGER</text>
+  <text x="148" y="146" class="tag">The easy way to manage Nginx reverse proxy, SSL certificates and more.</text>
+
+  <g transform="translate(788 20)">
+    <rect width="688" height="144" rx="12" class="panel"/>
+    <g transform="translate(44 20)">
+      <path d="M16 42V23c0-16 28-16 28 0v19" fill="none" stroke="#6ed957" stroke-width="4"/>
+      <rect x="6" y="40" width="48" height="40" rx="5" fill="#6ed957"/>
+      <text x="-22" y="105" class="small" style="font-weight:800">SSL / HTTPS</text>
+      <text x="-20" y="126" class="tiny">Automatic SSL</text>
+      <text x="-14" y="145" class="tiny">with Let's Encrypt</text>
+    </g>
+    <g transform="translate(182 24)" stroke="#58a6ff" stroke-width="6" fill="none">
+      <path d="M0 18h48M48 18l-18-14M48 18L30 32M48 52H0M0 52l18-14M0 52l18 14"/>
+      <text x="-25" y="101" class="small" style="font-weight:800;stroke:none;fill:#fff">REVERSE PROXY</text>
+      <text x="-6" y="122" class="tiny" style="stroke:none;fill:#e8edf2">Proxy your apps</text>
+      <text x="13" y="141" class="tiny" style="stroke:none;fill:#e8edf2">with ease</text>
+    </g>
+    <g transform="translate(315 33)">
+      <circle cx="30" cy="30" r="28" fill="none" stroke="#b15cff" stroke-width="3"/>
+      <path d="M2 30h56M30 2c-14 16-14 40 0 56M30 2c14 16 14 40 0 56" stroke="#b15cff" stroke-width="2" fill="none"/>
+      <text x="-30" y="92" class="small" style="font-weight:800">CUSTOM DOMAINS</text>
+      <text x="-6" y="113" class="tiny">Use your own</text>
+      <text x="6" y="132" class="tiny">domains</text>
+    </g>
+    <g transform="translate(454 24)">
+      <path d="M20 0c20 11 36 11 56 0v31c0 27-19 45-28 51-9-6-28-24-28-51z" fill="none" stroke="#ffb13b" stroke-width="4"/>
+      <path d="M38 37l10 10 20-24" stroke="#ffb13b" stroke-width="4" fill="none"/>
+      <text x="-4" y="101" class="small" style="font-weight:800">SECURE</text>
+      <text x="-28" y="122" class="tiny">Better security</text>
+      <text x="-18" y="141" class="tiny">for your services</text>
+    </g>
+    <g transform="translate(584 24)">
+      <rect width="54" height="39" fill="none" stroke="#55d55b" stroke-width="4"/>
+      <path d="M11 24l12-12 8 8 14-17" stroke="#55d55b" stroke-width="4" fill="none"/>
+      <path d="M20 49h14M13 58h28" stroke="#55d55b" stroke-width="4"/>
+      <text x="-10" y="101" class="small" style="font-weight:800">SIMPLE UI</text>
+      <text x="-32" y="122" class="tiny">Intuitive and easy</text>
+      <text x="-24" y="141" class="tiny">to use dashboard</text>
+    </g>
+  </g>
+
+  <g transform="translate(25 172)">
+    <rect width="265" height="280" rx="10" class="panel"/>
+    <text x="18" y="32" class="label">REQUIREMENTS</text>
+    <g class="small" transform="translate(45 62)">
+      <rect x="-1" y="-13" width="29" height="23" rx="3" fill="none" stroke="#20bcd6" stroke-width="2"/>
+      <text x="53" y="-4">Linux server (Ubuntu 20.04+</text>
+      <text x="53" y="18">recommended)</text>
+      <path d="M0 55c16 6 36 5 52-1-2 16-13 26-27 26S2 70 0 55z" fill="#2496ed"/>
+      <text x="53" y="61">Docker &amp; Docker Compose</text>
+      <text x="53" y="83">installed</text>
+      <circle cx="26" cy="130" r="17" fill="none" stroke="#2ca9ff" stroke-width="2"/>
+      <path d="M9 130h34M26 113c-10 12-10 23 0 34M26 113c10 12 10 23 0 34" stroke="#2ca9ff" stroke-width="2" fill="none"/>
+      <text x="53" y="126">A domain name pointing to</text>
+      <text x="53" y="148">your server's IP</text>
+      <path d="M9 184c14 9 26 9 40 0v24c0 20-14 33-20 37-7-4-20-17-20-37z" fill="none" stroke="#55d55b" stroke-width="3"/>
+      <path d="M20 207l7 8 14-17" stroke="#55d55b" stroke-width="3" fill="none"/>
+      <text x="53" y="190">Ports 80 and 443 open</text>
+      <text x="53" y="212">in your firewall</text>
+    </g>
+  </g>
+
+  <g transform="translate(25 472)">
+    <rect width="265" height="248" rx="10" class="panel"/>
+    <text x="18" y="32" class="purple">WHAT IS NGINX PROXY MANAGER?</text>
+    <text x="18" y="65" class="small">Nginx Proxy Manager (NPM) is a simple,</text>
+    <text x="18" y="87" class="small">powerful and easy-to-use web interface</text>
+    <text x="18" y="109" class="small">to manage Nginx reverse proxy, SSL</text>
+    <text x="18" y="131" class="small">certificates, and more.</text>
+    <g class="small" transform="translate(18 168)">
+      <circle cx="8" cy="0" r="8" fill="none" stroke="#c477ff" stroke-width="2"/><path d="M4 0l3 4 8-9" stroke="#c477ff" stroke-width="2" fill="none"/><text x="25" y="5">Built on Nginx</text>
+      <circle cx="8" cy="31" r="8" fill="none" stroke="#c477ff" stroke-width="2"/><path d="M4 31l3 4 8-9" stroke="#c477ff" stroke-width="2" fill="none"/><text x="25" y="36">Automatic Let's Encrypt SSL</text>
+      <circle cx="8" cy="62" r="8" fill="none" stroke="#c477ff" stroke-width="2"/><path d="M4 62l3 4 8-9" stroke="#c477ff" stroke-width="2" fill="none"/><text x="25" y="67">Access control and advanced options</text>
+    </g>
+  </g>
+
+  <g transform="translate(305 172)">
+    <rect width="1206" height="300" rx="10" class="panel"/>
+    <text x="18" y="31" class="label">1. INSTALL WITH DOCKER COMPOSE</text>
+    <g transform="translate(18 55)">
+      <circle cx="9" cy="9" r="9" fill="#58af39"/><text x="5" y="14" class="tiny">1</text>
+      <text x="32" y="14" class="small">Create a directory and navigate into it</text>
+      <rect y="34" width="280" height="68" rx="5" class="panel"/>
+      <text x="16" y="59" class="codeGreen">mkdir</text><text x="64" y="59" class="code">-p ~/nginx-proxy-manager</text>
+      <text x="16" y="85" class="codeGreen">cd</text><text x="43" y="85" class="code">~/nginx-proxy-manager</text>
+      <circle cx="9" cy="144" r="9" fill="#58af39"/><text x="5" y="149" class="tiny">2</text>
+      <text x="32" y="149" class="small">Create the docker-compose.yml file</text>
+      <rect y="170" width="280" height="45" rx="5" class="panel"/>
+      <text x="16" y="198" class="codeGreen">nano</text><text x="62" y="198" class="code">docker-compose.yml</text>
+    </g>
+    <path class="arrow" d="M612 342h28" transform="translate(0 -172)"/>
+    <g transform="translate(345 48)">
+      <circle cx="9" cy="9" r="9" fill="#58af39"/><text x="5" y="14" class="tiny">3</text>
+      <text x="32" y="14" class="small">Add the following content</text>
+      <rect y="34" width="360" height="235" rx="5" class="panel"/>
+      <text x="15" y="58" class="codeGreen">version:</text><text x="85" y="58" class="code" fill="#fbc02d">'3.8'</text>
+      <text x="15" y="82" class="codeGreen">services:</text>
+      <text x="35" y="106" class="codePink">nginx-proxy-manager:</text>
+      <text x="55" y="130" class="codeGreen">image:</text><text x="112" y="130" class="code">jc21/nginx-proxy-manager:latest</text>
+      <text x="55" y="154" class="codeGreen">restart:</text><text x="128" y="154" class="code">unless-stopped</text>
+      <text x="55" y="178" class="codeGreen">ports:</text>
+      <text x="75" y="202" class="code">- '80:80'</text>
+      <text x="75" y="226" class="code">- '443:443'</text>
+      <text x="75" y="250" class="code">- '81:81'</text>
+      <text x="55" y="274" class="codeGreen">volumes:</text>
+    </g>
+    <path class="arrow" d="M1019 340h28" transform="translate(0 -172)"/>
+    <g transform="translate(745 55)">
+      <circle cx="9" cy="9" r="9" fill="#58af39"/><text x="5" y="14" class="tiny">4</text>
+      <text x="32" y="14" class="small">Start the container</text>
+      <rect y="34" width="186" height="44" rx="5" class="panel"/>
+      <text x="15" y="62" class="codeGreen">docker</text><text x="74" y="62" class="code">compose up -d</text>
+      <text y="104" class="small">Check status</text>
+      <rect y="119" width="186" height="44" rx="5" class="panel"/>
+      <text x="15" y="147" class="codeGreen">docker</text><text x="74" y="147" class="code">compose ps</text>
+    </g>
+    <path class="arrow" d="M1240 158h28"/>
+    <g transform="translate(955 42)">
+      <rect width="232" height="236" rx="8" class="dash"/>
+      <text x="16" y="28" class="small">Access the dashboard</text>
+      <rect x="16" y="46" width="200" height="127" rx="5" class="panel"/>
+      <rect x="16" y="46" width="200" height="27" rx="5" fill="#101a23"/>
+      <circle cx="27" cy="60" r="3" fill="#ffb13b"/><circle cx="38" cy="60" r="3" fill="#87909b"/><circle cx="49" cy="60" r="3" fill="#87909b"/>
+      <rect x="64" y="53" width="132" height="18" rx="3" fill="#061923" stroke="#294353"/>
+      <text x="72" y="67" class="tiny">http://your-server-ip:81</text>
+      <g transform="translate(82 84) scale(.55)">
+        <path d="M43 0l43 25v50l-43 25L0 75V25z" fill="url(#npm)"/>
+        <path d="M43 18l27 16v32L43 82 16 66V34z" fill="#03101d"/>
+        <path d="M43 34l14 8v16l-14 8-14-8V42z" fill="#ff3d5a"/>
+      </g>
+      <text x="16" y="199" class="small">Default login:</text>
+      <text x="16" y="222" class="small">Email: </text><text x="68" y="222" class="small" fill="#7ed957">admin@example.com</text>
+      <text x="16" y="245" class="small">Password: </text><text x="93" y="245" class="small" fill="#7ed957">changeme</text>
+    </g>
+  </g>
+
+  <g transform="translate(305 487)">
+    <rect width="1206" height="281" rx="10" class="panel"/>
+    <text x="18" y="31" class="blue">2. BASIC CONFIGURATION</text>
+    <g transform="translate(36 62)">
+      <text x="0" y="18" class="small">1 Add a Proxy Host</text>
+      <rect x="0" y="36" width="210" height="78" rx="5" class="panel"/>
+      <rect x="15" y="72" width="178" height="36" rx="5" fill="#101d27"/>
+      <text x="24" y="97" class="tiny">Proxy Hosts</text>
+      <rect x="102" y="72" width="83" height="29" rx="4" fill="#55c450"/>
+      <text x="111" y="91" class="tiny">Add Proxy Host</text>
+      <text x="0" y="137" class="small">Give your app a domain</text>
+      <text x="0" y="158" class="small">name and destination.</text>
+    </g>
+    <path class="arrow" d="M276 126h36"/>
+    <g transform="translate(292 62)">
+      <text x="0" y="18" class="small">2 SSL Tab</text>
+      <rect x="0" y="36" width="166" height="96" rx="5" class="panel"/>
+      <text x="15" y="62" class="tiny">SSL</text>
+      <text x="15" y="90" class="tiny">Let's Encrypt</text>
+      <rect x="122" y="77" width="28" height="15" rx="7" fill="#69d45b"/>
+      <text x="15" y="118" class="tiny">Force SSL</text>
+      <rect x="122" y="105" width="28" height="15" rx="7" fill="#69d45b"/>
+      <text x="0" y="157" class="small">Enable Let's Encrypt SSL</text>
+      <text x="0" y="178" class="small">for automatic certificate</text>
+      <text x="0" y="199" class="small">generation.</text>
+    </g>
+    <path class="arrow" d="M475 126h36"/>
+    <g transform="translate(518 62)">
+      <text x="0" y="18" class="small">3 Advanced Tab</text>
+      <rect x="0" y="36" width="190" height="103" rx="5" class="panel"/>
+      <text x="14" y="58" class="tiny">Advanced</text>
+      <rect x="14" y="73" width="13" height="13" fill="#55c450"/><text x="34" y="84" class="tiny">Block Common Exploits</text>
+      <rect x="14" y="100" width="13" height="13" fill="#55c450"/><text x="34" y="111" class="tiny">Websockets Support</text>
+      <text x="14" y="135" class="tiny">Publicly Accessible</text>
+      <text x="0" y="163" class="small">Configure advanced options</text>
+      <text x="0" y="184" class="small">like security headers and</text>
+      <text x="0" y="205" class="small">access lists.</text>
+    </g>
+    <path class="arrow" d="M723 126h36"/>
+    <g transform="translate(782 62)">
+      <text x="0" y="18" class="small">4 Save</text>
+      <circle cx="68" cy="82" r="38" fill="#071724" stroke="#294353" stroke-width="2"/>
+      <path d="M46 83l18 18 32-39" stroke="#58a6ff" stroke-width="4" fill="none"/>
+      <text x="0" y="163" class="small">Save your configuration</text>
+      <text x="0" y="184" class="small">and your host is now</text>
+      <text x="0" y="205" class="small">live with SSL!</text>
+    </g>
+    <g transform="translate(900 31)">
+      <rect width="280" height="235" rx="8" class="dash"/>
+      <text x="16" y="28" class="small">Example Result</text>
+      <rect x="18" y="51" width="252" height="157" rx="5" class="panel"/>
+      <rect x="18" y="51" width="252" height="28" fill="#101a23"/>
+      <circle cx="32" cy="65" r="3" fill="#ffb13b"/><circle cx="44" cy="65" r="3" fill="#87909b"/>
+      <rect x="70" y="58" width="166" height="19" rx="3" fill="#061923" stroke="#294353"/>
+      <text x="78" y="72" class="tiny">https://app.yourdomain.com</text>
+      <path d="M116 109V90c0-19 48-19 48 0v19" fill="none" stroke="#55c450" stroke-width="4"/>
+      <rect x="105" y="108" width="70" height="42" rx="5" fill="#55c450"/>
+      <text x="130" y="136" style="font:800 22px Arial;fill:#03101d">!</text>
+      <text x="75" y="174" class="small">Connection is secure</text>
+      <text x="62" y="203" class="small">Your site is now available</text>
+      <text x="90" y="224" class="small">over HTTPS!</text>
+    </g>
+  </g>
+
+  <g transform="translate(25 733)">
+    <rect width="338" height="122" rx="8" class="panel"/>
+    <text x="18" y="31" class="yellow">IMPORTANT FOLDERS</text>
+    <rect x="20" y="58" width="33" height="29" rx="3" fill="#ffc043"/>
+    <text x="70" y="73" class="small">./data</text>
+    <text x="70" y="94" class="tiny">Stores NPM settings, proxy hosts, users, etc.</text>
+    <rect x="20" y="102" width="33" height="29" rx="3" fill="#ffc043"/>
+  </g>
+  <g transform="translate(377 733)">
+    <rect width="270" height="122" rx="8" class="panel"/>
+    <text x="18" y="31" class="yellow">USEFUL COMMANDS</text>
+    <text x="18" y="62" class="code">docker compose up -d</text>
+    <text x="18" y="84" class="code">docker compose down</text>
+    <text x="18" y="106" class="code">docker compose logs -f</text>
+    <text x="18" y="128" class="code">docker compose restart</text>
+  </g>
+  <g transform="translate(657 733)">
+    <rect width="397" height="122" rx="8" class="panel"/>
+    <text x="18" y="31" class="purple">TIPS</text>
+    <text x="18" y="62" class="small">Make sure your domain DNS A record points to your server IP.</text>
+    <text x="18" y="86" class="small">Open ports 80 and 443 in your firewall.</text>
+    <text x="18" y="110" class="small">Use strong passwords and keep your system updated.</text>
+  </g>
+  <g transform="translate(1064 733)">
+    <rect width="447" height="122" rx="8" class="panel"/>
+    <text x="18" y="31" class="blue">USEFUL LINKS</text>
+    <text x="18" y="62" class="small">Official Website: https://nginxproxymanager.com</text>
+    <text x="18" y="86" class="small">GitHub: https://github.com/NginxProxyManager/nginx-proxy-manager</text>
+    <text x="18" y="110" class="small">Let's Encrypt: https://letsencrypt.org</text>
+  </g>
+  <text x="405" y="846" class="small" style="font-size:18px">Nginx Proxy Manager makes reverse proxy and SSL management simple, secure and efficient.</text>
+</svg>
