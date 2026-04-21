@@ -787,114 +787,16 @@ main,
 
 .mathi-preview {
   min-height: 340px;
-  background:
-    radial-gradient(circle at 82% 20%, rgba(255, 107, 74, 0.18), transparent 28%),
-    linear-gradient(135deg, rgba(8, 25, 34, 0.94), rgba(17, 46, 60, 0.72));
+  background: #f6f7ff;
 }
 
-.mathi-preview::after {
-  content: "";
-  position: absolute;
-  inset: auto -18% -32% auto;
-  width: 58%;
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 107, 74, 0.18);
-  border-radius: 50%;
-  box-shadow: 0 0 42px rgba(255, 107, 74, 0.12);
-}
-
-.mathi-preview .browser-bar {
-  background: rgba(255, 255, 255, 0.035);
-}
-
-.mathi-preview-body {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 22px;
-  padding: 72px 34px 34px;
-}
-
-.mathi-brand {
-  display: grid;
-  gap: 8px;
-}
-
-.mathi-brand span {
-  color: var(--accent);
-  font-size: 0.92rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.mathi-brand strong {
-  max-width: 390px;
-  color: var(--text);
-  font-size: 1.78rem;
-  line-height: 1.18;
-}
-
-.mathi-worlds,
-.mathi-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.mathi-worlds span,
-.mathi-features span {
-  min-height: 34px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 14px;
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.mathi-worlds span:first-child,
-.mathi-features span:first-child {
-  color: var(--text);
-  border-color: rgba(255, 107, 74, 0.3);
-  box-shadow: 0 0 20px rgba(255, 107, 74, 0.1);
-}
-
-.mathi-progress {
-  display: grid;
-  gap: 14px;
-}
-
-.mathi-progress span {
-  position: relative;
-  display: block;
-  padding-top: 12px;
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.mathi-progress span::before,
-.mathi-progress span::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 5px;
-  border-radius: 999px;
-}
-
-.mathi-progress span::before {
+.mathi-preview-image {
   width: 100%;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.mathi-progress span::after {
-  width: var(--value);
-  background: linear-gradient(90deg, var(--accent), #ffd166);
-  box-shadow: 0 0 16px rgba(255, 107, 74, 0.4);
+  height: 100%;
+  min-height: inherit;
+  max-width: none;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .landing-preview {
@@ -1725,14 +1627,6 @@ main,
   .code-preview,
   .career-preview {
     padding-inline: 22px;
-  }
-
-  .mathi-preview-body {
-    padding-inline: 22px;
-  }
-
-  .mathi-brand strong {
-    font-size: 1.32rem;
   }
 
   .career-metrics,
