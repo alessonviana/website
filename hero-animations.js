@@ -36,8 +36,8 @@
       for (let i = 0; i < length; i++) {
         const from = oldChars[i] || '';
         const to = nextChars[i] || '';
-        const start = Math.floor(Math.random() * 8);
-        const end = start + Math.floor(Math.random() * 10) + 8;
+        const start = Math.floor(Math.random() * 36);
+        const end = start + Math.floor(Math.random() * 52) + 38;
         this.queue.push({ from, to, start, end });
       }
 
@@ -90,7 +90,7 @@
       target.setAttribute('aria-label', text);
       window.setTimeout(() => {
         scrambler.setText(text);
-      }, index * 180);
+      }, index * 420);
     });
   }
 

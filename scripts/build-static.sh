@@ -7,6 +7,7 @@ mkdir -p dist
 cp index.html dist/
 cp styles.css dist/
 cp style.css dist/
+cp asmr-background.js dist/
 cp hero-animations.js dist/
 cp script.js dist/
 cp -R css fonts img js dist/

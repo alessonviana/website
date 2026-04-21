@@ -4,6 +4,7 @@ FROM nginx:1.27-alpine
 # Copie apenas os arquivos públicos do site para a pasta padrão do Nginx.
 COPY index.html /usr/share/nginx/html/
 COPY styles.css /usr/share/nginx/html/
+COPY asmr-background.js /usr/share/nginx/html/
 COPY hero-animations.js /usr/share/nginx/html/
 COPY css/ /usr/share/nginx/html/css/
 COPY fonts/ /usr/share/nginx/html/fonts/
