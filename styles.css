@@ -718,47 +718,164 @@ main,
   opacity: 0.75;
 }
 
-.task-preview {
-  padding: 66px 34px 34px;
+.arcadev-preview {
+  padding: 74px 34px 34px;
   display: grid;
   align-content: center;
-  gap: 16px;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(255, 107, 74, 0.18), transparent 30%),
+    radial-gradient(circle at 8% 90%, rgba(45, 212, 191, 0.13), transparent 34%),
+    linear-gradient(135deg, rgba(4, 14, 20, 0.96), rgba(14, 40, 53, 0.78));
 }
 
-.task-preview .preview-top {
+.arcadev-preview::after {
+  content: "";
+  position: absolute;
+  right: -14%;
+  bottom: -26%;
+  width: 46%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 107, 74, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 44px rgba(255, 107, 74, 0.12);
+}
+
+.arcadev-preview .preview-top {
   position: absolute;
   inset: 0 0 auto;
 }
 
-.task-card {
-  min-height: 58px;
+.arcadev-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+  padding: 26px;
+  border-radius: 6px;
+  background: rgba(5, 19, 27, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.arcadev-panel-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.arcadev-mark {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #07141b;
+  background: var(--accent);
+  border-radius: 50%;
+  font-weight: 900;
+  box-shadow: 0 0 24px rgba(255, 107, 74, 0.34);
+}
+
+.arcadev-panel-header strong,
+.arcadev-queue strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
+.arcadev-panel-header small,
+.arcadev-queue small,
+.arcadev-metrics small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.arcadev-live {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 12px;
+  color: var(--text);
+  background: rgba(255, 107, 74, 0.16);
+  border: 1px solid rgba(255, 107, 74, 0.26);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.arcadev-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.arcadev-metrics span {
+  min-height: 76px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+}
+
+.arcadev-metrics strong {
+  color: var(--accent);
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.arcadev-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr) 26px minmax(0, 1fr) 26px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+
+.arcadev-flow span {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 12px;
+  color: var(--text);
+  background: rgba(16, 41, 54, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.arcadev-flow i {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 107, 74, 0.08), rgba(255, 107, 74, 0.7));
+}
+
+.arcadev-queue {
+  display: grid;
+  gap: 10px;
+}
+
+.arcadev-queue div {
+  min-height: 54px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 0 20px;
-  border-radius: 6px;
-  color: var(--text);
-  background: rgba(16, 41, 54, 0.86);
+  gap: 14px;
+  padding: 0 16px;
+  background: rgba(16, 41, 54, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
 }
 
-.task-card strong {
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.task-card small {
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.task-card.done {
-  border-color: rgba(255, 107, 74, 0.32);
-}
-
-.task-card.active {
-  box-shadow: 0 0 24px rgba(255, 107, 74, 0.12);
+.arcadev-queue div:first-child {
+  border-color: rgba(255, 107, 74, 0.28);
+  box-shadow: 0 0 22px rgba(255, 107, 74, 0.1);
 }
 
 .api-preview {
@@ -1622,11 +1739,27 @@ main,
     min-height: 250px;
   }
 
-  .task-preview,
+  .arcadev-preview,
   .api-preview,
   .code-preview,
   .career-preview {
     padding-inline: 22px;
+  }
+
+  .arcadev-panel {
+    padding: 20px;
+  }
+
+  .arcadev-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .arcadev-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .arcadev-flow i {
+    display: none;
   }
 
   .career-metrics,
@@ -1643,7 +1776,7 @@ main,
     font-size: 0.78rem;
   }
 
-  .task-card {
+  .arcadev-queue div {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
