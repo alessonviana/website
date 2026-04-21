@@ -1210,80 +1210,106 @@ main,
     linear-gradient(180deg, rgba(7, 21, 29, 0) 0%, rgba(13, 34, 45, 0.2) 54%, rgba(7, 21, 29, 0) 100%);
 }
 
-.articles-shell {
-  display: grid;
-  gap: 54px;
-}
-
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.article-card {
-  min-height: 100%;
-  display: grid;
-  align-content: start;
-  gap: 22px;
-  padding: 30px;
-  background:
-    radial-gradient(circle at 88% 10%, rgba(255, 107, 74, 0.12), transparent 30%),
-    rgba(4, 14, 20, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  box-shadow: var(--shadow);
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-}
-
-.article-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 107, 74, 0.34);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34), 0 0 32px rgba(255, 107, 74, 0.1);
-}
-
-.article-index {
+.article-meta {
+  margin-bottom: 18px;
   color: var(--accent);
-  font-size: 0.88rem;
-  font-weight: 800;
-}
-
-.article-card h3 {
-  color: var(--text);
-  font-size: 1.28rem;
-  line-height: 1.32;
-}
-
-.article-card p,
-.articles-cta p {
-  color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.8;
-}
-
-.article-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.article-tags span {
-  min-height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 13px;
-  color: var(--text);
-  background: rgba(17, 46, 60, 0.74);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.96rem;
   font-weight: 700;
 }
 
-.article-card .text-link {
-  width: max-content;
-  margin-top: auto;
+.article-preview {
+  min-height: 340px;
+  display: grid;
+  align-content: start;
+  gap: 24px;
+  padding: 74px 34px 34px;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255, 107, 74, 0.16), transparent 30%),
+    radial-gradient(circle at 10% 88%, rgba(45, 212, 191, 0.09), transparent 36%),
+    rgba(4, 14, 20, 0.78);
+}
+
+.article-preview .preview-top {
+  position: absolute;
+  inset: 0 0 auto;
+}
+
+.article-preview-header {
+  display: grid;
+  gap: 8px;
+}
+
+.article-preview-header span {
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.article-preview-header strong {
+  color: var(--text);
+  font-size: 1.55rem;
+  line-height: 1.18;
+}
+
+.article-preview-tags {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.article-preview-tags span {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 14px;
+  color: var(--muted);
+  background: rgba(255, 107, 74, 0.08);
+  border: 1px solid rgba(255, 107, 74, 0.18);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.article-preview-lines {
+  display: grid;
+  gap: 14px;
+}
+
+.article-preview-lines span {
+  position: relative;
+  padding-left: 26px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.article-preview-lines span::before {
+  content: "";
+  position: absolute;
+  top: 0.78em;
+  left: 0;
+  width: 13px;
+  height: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 14px rgba(255, 107, 74, 0.52);
+}
+
+.article-terminal {
+  display: grid;
+  gap: 16px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.article-terminal code {
+  color: #d8e8ed;
+  font-size: 0.96rem;
+}
+
+.article-terminal code::before {
+  content: ">";
+  margin-right: 10px;
+  color: var(--accent);
 }
 
 .articles-cta {
@@ -1522,9 +1548,6 @@ main,
     display: none;
   }
 
-  .articles-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 940px) {
@@ -1822,11 +1845,6 @@ main,
     font-size: 2rem;
   }
 
-  .articles-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .article-card,
   .articles-cta {
     padding: 22px;
   }
@@ -1872,7 +1890,8 @@ main,
   .arcadev-preview,
   .api-preview,
   .code-preview,
-  .career-preview {
+  .career-preview,
+  .article-preview {
     padding-inline: 22px;
   }
 
@@ -1894,15 +1913,18 @@ main,
 
   .career-metrics,
   .career-cloud-map,
-  .career-network {
+  .career-network,
+  .article-preview-tags {
     grid-template-columns: 1fr;
   }
 
-  .career-preview-header strong {
+  .career-preview-header strong,
+  .article-preview-header strong {
     font-size: 1.25rem;
   }
 
-  .career-terminal code {
+  .career-terminal code,
+  .article-terminal code {
     font-size: 0.78rem;
   }
 
