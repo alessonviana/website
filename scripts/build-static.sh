@@ -10,7 +10,7 @@ cp style.css dist/
 cp asmr-background.js dist/
 cp hero-animations.js dist/
 cp script.js dist/
-cp -R css fonts img js dist/
+cp -R css docs fonts img js dist/
 find dist -name '.DS_Store' -delete
 
 echo "Static site built in dist/"
