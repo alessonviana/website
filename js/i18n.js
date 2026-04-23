@@ -149,7 +149,7 @@
     ['.contact-label', 'Contact', 'Contato'],
     ['.contact h2 span:nth-child(1)', 'Have a project?', 'Tem um projeto?'],
     ['.contact h2 span:nth-child(2)', "Let's talk!", 'Vamos conversar!'],
-    ['.contact-form .btn-primary', 'Send message', 'Enviar mensagem'],
+    ['.contact-form .btn-primary', 'Send a message', 'Enviar mensagem'],
     ['label[for="nome"]', 'Name', 'Nome'],
     ['label[for="email"]', 'Email', 'Email'],
     ['label[for="mensagem"]', 'Message', 'Mensagem'],
