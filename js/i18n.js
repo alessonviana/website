@@ -33,7 +33,7 @@
     ['.hero-title-line', 'DevOps Engineer', 'Engenheiro DevOps', {scramble: true}],
     ['.hero-description', 'I build reliable cloud infrastructure, automation, pipelines, and scalable operations for modern products.', 'Crio infraestrutura cloud confiável, automações, pipelines e operações escaláveis para produtos modernos.', {scramble: true}],
     ['.hero-actions .btn-primary', 'View Projects', 'Ver Projetos'],
-    ['.hero-actions .btn-outline', 'Download CV', 'Download CV'],
+    ['.hero-actions .btn-outline', 'Download Resume', 'Download Resume'],
 
     ['.service-item:nth-child(1) h3', 'Web Development', 'Desenvolvimento Web'],
     ['.service-item:nth-child(2) h3', 'Application Management', 'Gerenciamento de aplicações'],
