@@ -9,6 +9,7 @@ cp styles.css dist/
 cp style.css dist/
 cp asmr-background.js dist/
 cp hero-animations.js dist/
+cp page-progress.js dist/
 cp script.js dist/
 cp -R css docs fonts img js dist/
 find dist -name '.DS_Store' -delete

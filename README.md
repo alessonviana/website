@@ -41,6 +41,7 @@ O layout usa um visual escuro, técnico e responsivo, com background animado, te
 - JavaScript puro em:
   - `asmr-background.js`
   - `hero-animations.js`
+  - `page-progress.js`
   - `js/i18n.js`
   - `js/recommendations.js`
 - Google Fonts com a família `Poppins`.
@@ -59,6 +60,7 @@ Não há `package.json`, instalação de dependências ou etapa de transpilaçã
 ├── style.css                  # CSS legado, copiado por compatibilidade no build
 ├── asmr-background.js         # Canvas animado de fundo após a seção hero
 ├── hero-animations.js         # Efeito scramble e chuva de caracteres do hero
+├── page-progress.js           # Barra de progresso fixa no topo da tela
 ├── js/
 │   ├── i18n.js                # Alternância EN/PT por seletores DOM
 │   ├── recommendations.js     # Carrossel e modal das recomendações
@@ -120,6 +122,7 @@ O script executa as seguintes ações:
    - `style.css`
    - `asmr-background.js`
    - `hero-animations.js`
+   - `page-progress.js`
    - `script.js`
    - `css/`
    - `docs/`
@@ -345,6 +348,10 @@ Responsável por:
 - Chuva de caracteres na camada `.hero-rain`.
 - Respeito a `prefers-reduced-motion`.
 - Pausa/reinício de animação quando a aba fica oculta.
+
+### `page-progress.js`
+
+Responsável pela barra fixa no topo da tela. O script calcula o progresso de rolagem da página, atualiza a largura da barra via CSS custom properties e mantém o atributo `aria-valuenow` sincronizado.
 
 ### `asmr-background.js`
 

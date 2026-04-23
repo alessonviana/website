@@ -159,6 +159,7 @@
   ];
 
   const attrEntries = [
+    ['.page-progress', 'aria-label', 'Page progress', 'Progresso da página'],
     ['.navbar', 'aria-label', 'Main navigation', 'Navegação principal'],
     ['.logo', 'aria-label', 'Aleson Viana - Home', 'Aleson Viana - Início'],
     ['.nav-control', 'aria-label', 'Open menu', 'Abrir menu'],

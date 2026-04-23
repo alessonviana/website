@@ -14,6 +14,8 @@
   --header: 84px;
   --tech-strip-height: 94px;
   --page-gutter: clamp(48px, 5.5vw, 160px);
+  --page-progress: 0%;
+  --page-progress-alpha: 0;
 }
 
 *,
@@ -66,6 +68,56 @@ body.asmr-background-active .asmr-background-canvas {
 body::selection {
   background: var(--accent);
   color: #07151d;
+}
+
+.page-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 80;
+  height: 4px;
+  overflow: visible;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(255, 107, 74, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 107, 74, 0.08));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.page-progress-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--page-progress);
+  max-width: 100%;
+  opacity: var(--page-progress-alpha);
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, #ff3b2e 0%, var(--accent) 34%, #fff0a6 68%, #7cf7ff 100%);
+  box-shadow:
+    0 0 8px rgba(255, 107, 74, 0.78),
+    0 0 20px rgba(255, 107, 74, 0.42),
+    0 0 34px rgba(124, 247, 255, 0.32);
+  transition: width 90ms linear, opacity 160ms ease;
+}
+
+.page-progress-bar::before,
+.page-progress-bar::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.page-progress-bar::before {
+  inset: -6px -18px -6px 0;
+  background: linear-gradient(90deg, rgba(255, 107, 74, 0), rgba(255, 107, 74, 0.38), rgba(124, 247, 255, 0.42));
+  filter: blur(10px);
+}
+
+.page-progress-bar::after {
+  top: 50%;
+  right: -28px;
+  width: 56px;
+  height: 3px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(255, 240, 166, 0), rgba(255, 240, 166, 0.95) 42%, rgba(124, 247, 255, 0.95));
+  filter: blur(1px);
+  opacity: 0.86;
 }
 
 a {
@@ -2084,6 +2136,10 @@ body.testimonial-modal-open {
 
   .asmr-background-canvas {
     display: none;
+  }
+
+  .page-progress-bar {
+    transition: none;
   }
 }
 
